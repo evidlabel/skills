@@ -14,7 +14,7 @@ from pathlib import Path
 try:
     import yaml
 except ImportError:
-    sys.exit("refs_to_typ.py needs PyYAML")
+    yaml = None
 
 
 def prefix(key: str) -> str:
@@ -84,6 +84,8 @@ def main() -> int:
     p.add_argument("--write-refs", action="store_true", help="write author/date from :main onto quote slugs")
     p.add_argument("--max-quotes", type=int, default=12, help="refuse a dump larger than this; subset refs.yml first")
     args = p.parse_args()
+    if yaml is None:
+        sys.exit("refs_to_typ.py needs PyYAML")
 
     raw = args.refs.read_text()
     data = yaml.safe_load(raw)

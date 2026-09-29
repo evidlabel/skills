@@ -143,9 +143,9 @@ The citation chain makes the result auditable. Any finding traces back through t
 | HUDOC / Council of Europe download | ingestion | `hudoc` | https://raw.githubusercontent.com/evidlabel/hudoc/master/SKILL.md | `evid --db evid doc list -s <slug>` after import |
 | Danish verdicts (Domsdatabasen) | ingestion | `domdb` | https://raw.githubusercontent.com/evidlabel/domdb/master/SKILL.md | `evid --db evid doc list -s <slug>` after import |
 | Danish statutes as paragraph cites | ingestion | `lawcite` | https://raw.githubusercontent.com/evidlabel/lawcite/master/SKILL.md | Hayagriva `.yaml` beside the case's `refs.yml` |
-| Keys-only Typst from an evid set | analysis | `labquote` | skills/labquote/SKILL.md | memo, or a composite step in `analysis/` |
-| Page, type, and title block | authoring | `typst_use` | skills/typst_use/SKILL.md | the authored document |
-| Dated arguing memo | authoring | `memo` | skills/memo/SKILL.md | PDF snapshot in the case file; go back to ingestion for any gap |
+| Keys-only Typst from an evid set | analysis | `labquote` | analyse/keys-only-typst/labquote/SKILL.md | memo, or a composite step in `analysis/` |
+| Page, type, and title block | authoring | `typst_use` | author/page-type-title/typst_use/SKILL.md | the authored document |
+| Dated arguing memo | authoring | `memo` | author/dated-arguing-memo/memo/SKILL.md | PDF snapshot in the case file; go back to ingestion for any gap |
 
 ## Install the picked tool
 
@@ -157,7 +157,7 @@ uv tool install git+https://github.com/evidlabel/lawcite.git
 uv tool install git+https://github.com/evidlabel/domdb.git
 ```
 
-labquote, typst_use, and memo are skills in this repo (`skills/`). They need `typst` on PATH, and the `@preview/labquote` package is fetched on first compile.
+labquote, typst_use, and memo are skills in this repo, under `analyse/` and `author/`. They need `typst` on PATH, and the `@preview/labquote` package is fetched on first compile.
 
 Install only the one you opened. evid's label and gather commands need `typst` on PATH. did needs a desktop for its GUI, and a local model if the review should be automated. domdb needs Domsdatabasen API credentials, which stay out of Git.
 

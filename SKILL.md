@@ -7,7 +7,7 @@ description: Use for social-legal work (family law and similar) where the facts 
 
 Map only. Pick one row, then open that leaf. One leaf per job. Sibling leaves stay closed. This file is the only place that maps needs to leaves; leaves do not point at each other or back here.
 
-jura is for social-legal work: family law and disputes like it, where the evidence matters much more than the law. In these cases people usually disagree about what happened, not about what the rule says. The law is mostly settled and the facts are contested, so the toolset is built to establish facts, not to cite statutes. Domain knowledge (family law, child welfare, and so on) lives in the leaf instructions, not in this tree.
+jura is for social-legal work: family law and disputes like it, where the evidence matters much more than the law. In these cases people usually disagree about what happened, not about what the rule says. The law is mostly settled and the facts are contested, so the toolset is built to establish facts, not to cite statutes. Practice-area knowledge (family law, child welfare, and so on) lives in the leaf instructions. The analysis tree below is organised by kind of analysis, not by practice area.
 
 Flags live in each tool (` -h` / ` -j`). This file does not cache them.
 
@@ -59,6 +59,7 @@ The stages are not one-way. When authoring surfaces a gap (a filing needs a fact
 10. **The scratchpad is disposable.** Composing, condensing, pruning, and trying argument lines all happen in `scratch/`. Don't version the scratchpad, and don't keep failed argument lines as artifacts. Only final authored output earns a place in the case file.
 11. **Stages loop.** Gaps found in authoring go back to ingestion.
 12. **Verify against the source.** Every quote and every finding must trace back to verbatim text in an ingested document.
+13. **Analysis is neutral by construction.** Run each micro-skill over every party's material; label statements, never people; no single score for a person; findings are not conclusions. Weighing is authoring's job, and ultimately the decision-maker's.
 
 ## Processing: did
 
@@ -74,9 +75,9 @@ Identity maps stay out of Git (rule 4).
 
 ### Structure: domain → method → micro-skill
 
-- A **domain** is an area of practice, such as family law.
+- A **domain** is a kind of analysis: language, evidence, credibility, proportionality, or legal. Each domain is one skill.
 - A **method** is a way of reading evidence, such as comparing stated with demonstrated behavior.
-- A **micro-skill** is one narrow extraction. It belongs to exactly one domain and one method.
+- A **micro-skill** is one narrow extraction or comparison, with an ID `<domain>/<method>/<micro>@<version>`. It belongs to exactly one domain and one method. The ID starts every pass `job` and every composite `step`.
 
 Micro-skills compose. For example, a parental alienation brief is a chain of micro-skills, and each one produces a pass. Micro-skill output is structured (labels, quotes, confidence), never prose, because structured output can be aggregated across a corpus.
 
@@ -86,6 +87,8 @@ For example, take the method of comparing stated with demonstrated collaboration
 - The **demonstrated collaboration** micro-skill catches actions: whether the parent attended the meeting, responded, and followed the schedule.
 - The composite step compares the two, and that comparison is the analysis. High stated collaboration with low demonstrated collaboration is the virtue-signaling pattern.
 
+This example is the credibility domain's stated-vs-demonstrated method.
+
 ### Two tiers
 
 | Tier | Reads | Writes | Lives |
@@ -93,40 +96,64 @@ For example, take the method of comparing stated with demonstrated collaboration
 | Basic (pass) | One document, one instruction | JSON sidecar | Beside the document in `evid/` (`machine/`) |
 | Composite | Many sidecars across documents | JSON file | `analysis/` in the case |
 
+### Analysis map
+
+Open the domain skill for the analysis in hand. Composites name their inputs as file patterns; this table is the only place that says which domain produces them.
+
+| Domain | Methods | Open | Produces | Reads from other domains |
+| --- | --- | --- | --- | --- |
+| language | contradiction · evasiveness · manipulation · attribution | analyse/language/analysis-language/SKILL.md | passes `language/*`; `analysis/language/*` | evidence: timeline (optional) |
+| evidence | inventory · timeline · interviews · corroboration | analyse/evidence/analysis-evidence/SKILL.md | `<slug>.type:` tags; passes `evidence/*`; `analysis/evidence/*` | language: contradiction, attribution (for corroboration) |
+| credibility | consistency · external consistency · stated vs demonstrated · source reliability | analyse/credibility/analysis-credibility/SKILL.md | passes `credibility/*`; `analysis/credibility/*` | language: contradiction, evasiveness; evidence: inventory, timeline, corroboration, interviews |
+| legal | law · guidelines · jurisprudence | analyse/legal/analysis-legal/SKILL.md | `refs/law-*.yaml`; passes `legal/*`; `analysis/legal/*` | evidence: timeline; any fact composite (for fit and analogues); proportionality: process (optional) |
+| proportionality | measures · test · reasons · process | analyse/proportionality/analysis-proportionality/SKILL.md | passes `proportionality/*`; `analysis/proportionality/*` | legal: law criteria; evidence: timeline, interviews; credibility (optional) |
+
+Usual order:
+1. evidence: inventory, then timeline
+2. language
+3. evidence: interviews, then corroboration
+4. credibility
+5. legal: law criteria
+6. proportionality
+7. legal: fit, compliance, analogues
+
+Any order works as long as each composite's inputs exist. A composite that is missing an input stops and names the pattern.
+
 ### Pass sidecar (basic)
 
-A pass is the extraction, not the analysis. It is a JSON sidecar attached to one document, and it records:
+A pass is the extraction, not the analysis. It is one `evid --db evid doc quote --from <candidates.json> --model <id> --job "<micro-skill ID> — <instruction>"` run on one document. evid records it at `evid/sets/<slug>/docs/<uuid>/machine/<timestamp>_<hex>.json`:
 
-- when the pass ran (timestamp);
-- which model ran it;
-- what it looked for (the instruction, as a string);
-- its findings, each with start and end offsets into the document's verbatim text, so the finding can be extracted exactly.
+- `timestamp`, `model`, `job` (the micro-skill ID and instruction)
+- `quotes[]`: each candidate with its `note`, which carries the micro-skill's labels as compact JSON
+- `results[]`, in the same order: `matched`, `score`, `key`, `page`
 
-Read the document's existing passes (`evid --db evid doc passes`) before running another. The evid leaf defines the file naming.
+The verbatim text and its character offsets are in `machine.hayagriva` under the result's `key` (`serial-number: "chars <start>-<end>"` over `text.txt`, plus `page-range`). A finding is therefore `(uuid, pass id, key)`, and it can always be extracted exactly.
+
+Read the document's existing passes (`evid --db evid doc passes -s <slug> -u <uuid> -f json`) before running another. Write each candidate file as a new file in that document's `machine/` directory: `from-<timestamp>-<micro>.json`.
 
 ### Composite JSON
 
-A composite result cannot be attached to a single document, so it lives in `analysis/`:
+A composite result can't be attached to a single document, so it lives in `analysis/<domain>/<method>/<step>-<YYYYMMDDTHHMMSSZ>.json`. Write one new file per run and never edit an earlier one; the newest file for a step is current.
 
 ```json
 {
-  "step": "stated-vs-demonstrated-collaboration",
+  "schema": 1,
+  "step": "language/contradiction/compare@1",
   "timestamp": "YYYY-MM-DDTHH:MM:SSZ",
   "model": "<model id>",
-  "inputs": ["<uuid>/machine/<pass>.json", "..."],
+  "set": "<slug>",
+  "inputs": ["evid/sets/<slug>/docs/<uuid>/machine/<pass>.json", "analysis/<...>.json"],
+  "inputs_unreviewed": ["<uuid>"],
   "findings": [
-    {
-      "claim": "<structured label>",
-      "sources": [
-        {"pass": "<uuid>/machine/<pass>.json", "start": 0, "end": 0}
-      ],
-      "values": {"stated": 0.0, "demonstrated": 0.0, "gap": 0.0}
-    }
-  ]
+    {"id": "f1", "claim": "<structured label>",
+     "sources": [{"uuid": "<uuid>", "pass": "<pass id>", "key": "<xxxx:qN>", "page": 1}],
+     "values": {}}
+  ],
+  "gaps": ["<what is missing>"]
 }
 ```
 
-The citation chain makes the result auditable. Any finding traces back through the composite and the pass to the original verbatim text. Because the result is a file rather than a chat session, it persists and can be re-run when a new pass lands.
+A source is one of four things: a pass key; `{"analysis": "<file>", "finding": "<id>"}`; `{"uuid": "<uuid>"}` for a whole document; or `{"hayagriva": "refs/<file>.yaml", "key": "<key>"}`. The citation chain makes every result auditable. Any finding traces back through the composite and the pass to the verbatim text. Because the result is a file, it persists and can be re-run when a new pass lands.
 
 ## Case file
 
@@ -144,6 +171,11 @@ The citation chain makes the result auditable. Any finding traces back through t
 | Danish verdicts (Domsdatabasen) | ingestion | `domdb` | https://raw.githubusercontent.com/evidlabel/domdb/master/SKILL.md | `evid --db evid doc list -s <slug>` after import |
 | Danish statutes as paragraph cites | ingestion | `lawcite` | https://raw.githubusercontent.com/evidlabel/lawcite/master/SKILL.md | Hayagriva `.yaml` beside the case's `refs.yml` |
 | Keys-only Typst from an evid set | analysis | `labquote` | analyse/keys-only-typst/labquote/SKILL.md | memo, or a composite step in `analysis/` |
+| Language analysis: contradiction, evasiveness, manipulation, attribution | analysis | `analysis-language` | analyse/language/analysis-language/SKILL.md | Composite in `analysis/language/`; credibility reads it |
+| Evidence analysis: inventory, timeline, interviews, corroboration | analysis | `analysis-evidence` | analyse/evidence/analysis-evidence/SKILL.md | Composite in `analysis/evidence/`; most domains read it |
+| Credibility factors | analysis | `analysis-credibility` | analyse/credibility/analysis-credibility/SKILL.md | Composite in `analysis/credibility/`; memo or proportionality |
+| Proportionality of a measure | analysis | `analysis-proportionality` | analyse/proportionality/analysis-proportionality/SKILL.md | Composite in `analysis/proportionality/`; memo |
+| Law, guidelines, jurisprudence | analysis | `analysis-legal` | analyse/legal/analysis-legal/SKILL.md | Criteria first (proportionality needs them), then fit |
 | Page, type, and title block | authoring | `typst_use` | author/page-type-title/typst_use/SKILL.md | the authored document |
 | Dated arguing memo | authoring | `memo` | author/dated-arguing-memo/memo/SKILL.md | PDF snapshot in the case file; go back to ingestion for any gap |
 
@@ -159,6 +191,8 @@ uv tool install git+https://github.com/evidlabel/domdb.git
 
 labquote, typst_use, and memo are skills in this repo, under `analyse/` and `author/`. They need `typst` on PATH, and the `@preview/labquote` package is fetched on first compile.
 
+The analysis-* skills are in this repo, under `analyse/`. They need only evid, plus lawcite, domdb, or hudoc when analysis-legal fetches sources.
+
 Install only the one you opened. evid's label and gather commands need `typst` on PATH. did needs a desktop for its GUI, and a local model if the review should be automated. domdb needs Domsdatabasen API credentials, which stay out of Git.
 
 ## Done
@@ -169,3 +203,5 @@ Install only the one you opened. evid's label and gather commands need `typst` o
 - Composite results are in `analysis/`, and only final authored output is in the case file.
 - The job's changes are in a scoped commit, and the remaining working-tree state has been reported.
 - Every output has been checked against the original source.
+- Analysis composites are new files in `analysis/<domain>/<method>/`, and every finding resolves to a key, a composite finding, a UUID, or a Hayagriva entry.
+- Missing analysis inputs were reported by pattern, not worked around.

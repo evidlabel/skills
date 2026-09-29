@@ -1,6 +1,6 @@
 ---
 name: jura
-description: Use for social-legal work (family law and similar) where the facts are contested and the law is mostly settled. Routes ingestion, processing, analysis, and authoring across evid, did, hudoc, domdb, lawcite, labquote, and memo. Map only; open one leaf per job.
+description: Use for social-legal work (family law and similar) where the facts are contested and the law is mostly settled. Routes ingestion, processing, analysis, and authoring across evid, did, hudoc, domdb, lawcite, labquote, typst_use, and memo. Map only; open one leaf per job.
 ---
 
 # jura
@@ -144,6 +144,7 @@ The citation chain makes the result auditable. Any finding traces back through t
 | Danish verdicts (Domsdatabasen) | ingestion | `domdb` | https://raw.githubusercontent.com/evidlabel/domdb/master/SKILL.md | `evid --db evid doc list -s <slug>` after import |
 | Danish statutes as paragraph cites | ingestion | `lawcite` | https://raw.githubusercontent.com/evidlabel/lawcite/master/SKILL.md | Hayagriva `.yaml` beside the case's `refs.yml` |
 | Keys-only Typst from an evid set | analysis | `labquote` | skills/labquote/SKILL.md | memo, or a composite step in `analysis/` |
+| Page, type, and title block | authoring | `typst_use` | skills/typst_use/SKILL.md | the authored document |
 | Dated arguing memo | authoring | `memo` | skills/memo/SKILL.md | PDF snapshot in the case file; go back to ingestion for any gap |
 
 ## Install the picked tool
@@ -156,7 +157,7 @@ uv tool install git+https://github.com/evidlabel/lawcite.git
 uv tool install git+https://github.com/evidlabel/domdb.git
 ```
 
-labquote and memo are skills in this repo (`skills/`). They need `typst` on PATH, and the `@preview/labquote` package is fetched on first compile.
+labquote, typst_use, and memo are skills in this repo (`skills/`). They need `typst` on PATH, and the `@preview/labquote` package is fetched on first compile.
 
 Install only the one you opened. evid's label and gather commands need `typst` on PATH. did needs a desktop for its GUI, and a local model if the review should be automated. domdb needs Domsdatabasen API credentials, which stay out of Git.
 

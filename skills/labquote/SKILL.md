@@ -27,7 +27,7 @@ Every evid command runs as `evid --db evid` from the case root. `scratch/` is ep
 python3 <skill-dir>/scripts/refs_to_typ.py refs.yml -o main.typ --write-refs
 ```
 
-`--font` / `--cite-style` / `--lang` as needed. Then write around the generated `#blockq` lines. Do not replace those keys. Do not switch to markdown `>`.
+`--cite-style` as needed. Then write around the generated `#blockq` lines. Do not replace those keys. Do not switch to markdown `>`.
 6. `typst compile main.typ`. Failed anchor throws
 
 Shared db, read-only discovery: `evid set gather litc -o scratch/litc.yml`. This is the only bare `evid` allowed; copy what you need into `evid/sets/<slug>/docs/` and gather the local set.

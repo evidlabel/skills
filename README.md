@@ -7,9 +7,9 @@ Each skill is a folder under [`skills/`](skills/) with a `SKILL.md` (`name` + `d
 | Skill | What it does |
 |-------|----------------|
 | [`labquote`](skills/labquote/SKILL.md) | Gather (`evid set gather` → `refs.yml`) and render verbatim quotes in a keys-only Typst document. |
-| [`memo`](skills/memo/SKILL.md) | Arguing *style* of a labquote document: dated memo, sections and bullets, asserted close. |
+| [`memo`](skills/memo/SKILL.md) | Dated memo that answers one question from verbatim quotes. |
 
-Router: [jura.sh/SKILL.md](https://jura.sh/SKILL.md).
+Router: [`SKILL.md`](SKILL.md) at the repo root (name `jura`). jura.sh links here.
 
 ## Install
 

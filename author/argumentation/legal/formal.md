@@ -1,0 +1,3 @@
+- for formal legal arguments
+- use relevant structures such as CRAC, IRAC etc
+- ref to Columbia Law School https://www.law.columbia.edu/academics/experiential/legal-writing/writing-center/legal-writing-resources to where more information found on how to structure such docs and when to use which structure. 

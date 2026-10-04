@@ -1,6 +1,6 @@
 ---
 name: labquote
-description: Use when the user wants to render quotes, block quotes, bare cites, legal `Id.` back-references, or a grouped bibliography in a Typst document driven from a namespaced Hayagriva YAML file (as produced by `evid set gather`). Triggers on "set up labquote", "block quote in Typst", "cite this snippet", "render my refs.yml as quotes", "keys-only Typst", "inline quote with superscript", "legal Id. back-reference", "grouped quote bibliography", "#blockq", "#inlineq", "#cite-ref", "labquote bibliography", or building a citable Typst document from labelled evidence.
+description: Use when the user wants to render quotes, block quotes, bare cites, legal `Id.` back-references, or a grouped bibliography in a Typst document driven from a namespaced Hayagriva YAML file (as produced by `evid --db evid set gather`). Triggers on "set up labquote", "block quote in Typst", "cite this snippet", "render my refs.yml as quotes", "keys-only Typst", "inline quote with superscript", "legal Id. back-reference", "grouped quote bibliography", "#blockq", "#inlineq", "#cite-ref", "labquote bibliography", or building a citable Typst document from labelled evidence.
 license: MIT
 compatibility: Requires typst on PATH. Package @preview/labquote:0.1.0. refs_to_typ.py needs PyYAML.
 ---
@@ -30,7 +30,7 @@ python3 <skill-dir>/scripts/refs_to_typ.py refs.yml -o main.typ --write-refs
 `--cite-style` as needed. Then write around the generated `#blockq` lines. Do not replace those keys. Do not switch to markdown `>`.
 6. `typst compile main.typ`. Failed anchor throws
 
-Shared db, read-only discovery: `evid set gather litc -o scratch/litc.yml`. This is the only bare `evid` allowed; copy what you need into `evid/sets/<slug>/docs/` and gather the local set.
+Read-only discovery; the only bare evid call in any skill: `evid set gather litc -o scratch/litc.yml`. Copy what you need into `evid/sets/<slug>/docs/` and gather the local set.
 
 `title:` is sacred — slice with `start:`/`end:`, never edit the body. `:main` title may be cleaned (filename slug → readable) as a string replace.
 

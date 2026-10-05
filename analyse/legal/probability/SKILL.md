@@ -19,6 +19,9 @@ Related concepts:
   Obtain the exact wording for the jurisdiction and the date.
 
 # burden of proof
+- civil --> 50% (more likely than not, balance of probabilities) 
+- criminal --> 9x% (beyond reasonable doubt)
+- other (list out the others)
 
 # truth and probability
 
@@ -32,4 +35,4 @@ Related concepts:
 - Some ideologies deny the existence of facts and proclaim them to be personal.
 - This is generally not a functional basis for law.
   It affects therapy, for example, which may feed information into legal matters.
-- It matters whether this is in play.
+- Be very observant of whether this is in play.

@@ -1,33 +1,35 @@
 ---
 name: probability
-description: Brief on probabilistic arguments in law.
+description: Use when briefing probabilistic arguments in law.
 ---
 
 # probability
-- basis of any law, weighting evidence against relevant burden of proof --> a probabilistic concept
-- related concepts
-  - likelihood --> synonym for probability
-  - credibility --> statement by credible person more likely accurate/true
-  - plausibility --> a plausible statement is more likely to be true
-    - implausible statements require more evidence to be believed
-  - discrimination
-    - one receives harsher sanctions, is required to submit more evidence or is in some other way disadvantaged procedurally than is warranted based on group membership (discrimination basis)
-  - fairness, fair trial
-    - most jurisdictions have fair trial principles, get exact relevant frasing  
-  
-# burden of proof 
- 
-# truth and probability
-  - truth
-    - actual truth theoretically impossible to determine, however, in most real cases, facts exist
-    - uncontested statements of fact or more likely to represent the actual facts
-    - statements of fact supported by overwhelming evidence are more likely to represent facts
 
+The basis of any law is weighting evidence against the relevant burden of proof.
+That is a probabilistic concept.
+
+Related concepts:
+
+- Likelihood is a synonym for probability.
+- Credibility means a statement by a credible person is more likely to be accurate or true.
+- A plausible statement is more likely to be true.
+  An implausible statement requires more evidence to be believed.
+- Discrimination means a person receives harsher sanctions, is required to submit more evidence, or is in some other way disadvantaged procedurally, more than is warranted based on group membership.
+- Fairness and a fair trial.
+  Obtain the exact wording for the jurisdiction and the date.
+
+# burden of proof
+
+# truth and probability
+
+- Actual truth is theoretically impossible to determine.
+  In most real cases, facts exist.
+- Uncontested statements of fact are more likely to represent the actual facts.
+- Statements of fact supported by overwhelming evidence are more likely to represent the facts.
 
 # personal truth
-    - notions of personal truth
-      - some ideologies deny the existence of facts, proclaim them to be personal
-      - this is generally not a functional basis for law, however, it affects e.g. therapy, which may feed information into legal matters
-      - important to be aware if this is at play
 
-
+- Some ideologies deny the existence of facts and proclaim them to be personal.
+- This is generally not a functional basis for law.
+  It affects therapy, for example, which may feed information into legal matters.
+- It matters whether this is in play.

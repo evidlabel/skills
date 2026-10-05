@@ -1,7 +1,7 @@
 ---
 name: quote_summary
 description: |
-  Use when the user wants a Typst document that is only a set of relevant verbatim quotes from labquote.
+  Use when the user wants a Typst document that is only a set of relevant verbatim quotes using labquote.
   Triggers on "quote summary", "the relevant quotes", "citatsamling", "just the quotes".
   Not an arguing memo (memo), and not gather or keys-only rendering (labquote).
 license: MIT

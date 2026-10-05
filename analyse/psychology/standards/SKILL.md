@@ -5,9 +5,9 @@ description: Use when a psychologist is involved and the report is read against 
 
 # standards
 
-Where a psychologist is involved, check whether they were authorized, note this in case, as standards/requirements and recourse may depend on this. 
+Where a psychologist is involved, find whether they were authorized for this work. Note that on the case. Which rules apply, and what recourse exists, depend on it.
 
-Read the report against the documents that govern the work:
+Read the report against the documents that govern the work. Take them from the evid set for this jurisdiction and the date of the work:
 
 - the statute
 - the professional guidelines
@@ -15,12 +15,9 @@ Read the report against the documents that govern the work:
 - the licensing board
 - the guideline for that procedure or that kind of report, such as a custody evaluation
 
-Be careful with the diagnostic system. Note whether the report uses ICD-10, ICD-11, or DSM-5, which of those was in force at the time of the matter, and whether the report used the system that applied then.
+Note the diagnostic system the report uses. Obtain which system was in force at the time of the matter, and whether the report used that one.
 
-## on ethical/professional guidelines
-Psychology is a broad field. Practitioners are often specialized.
-
-The full list is the one in the ethical and professional guideline that governs this psychologist. Parse it out of that guideline. Look for at least:
+The full list of professional duties is the one in the ethical and professional guideline that governs this psychologist. Parse it out of that guideline. Look for at least:
 
 - correct procedure
 - correct handling of information
@@ -28,4 +25,6 @@ The full list is the one in the ethical and professional guideline that governs 
 - keeping professional distance
 - disclosing conflicts of interest
 - disclosing insufficient specialisation, and dealing with it by consultation
-- correct use of professional terminology, and whether a lay reader is told what the term means 
+- correct use of professional terminology, and whether a lay reader is told what the term means
+
+`professionalism` reads the terms in the document against that guideline.

@@ -1,12 +1,14 @@
 ---
-name: analysis-evidence
+name: evidence
 description: Use when setting out what the record shows in a disputed-facts case.
 ---
 
-# analysis-evidence
+# evidence
 
-- inventory, then timeline, then interviews, then corroboration
-- what each document is, who wrote it, and how independent it is
-- a sourced timeline of events
-- how interviews, including child interviews, were asked, recorded, and conducted
-- which sources support or contradict each contested point
+Inventory first. For each document: what it is, who wrote it, and whether the writer saw the events or heard them.
+
+Then a timeline. Each event names its source.
+
+Then the interviews, including a child's. How the questions were asked, how it was recorded, how it was conducted.
+
+Then each contested point: which sources support it, and which contradict it.

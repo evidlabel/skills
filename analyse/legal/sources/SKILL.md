@@ -1,12 +1,12 @@
 ---
-name: analysis-legal
-description: Use when structuring the law that governs a disputed-facts case.
+name: sources
+description: Use when setting the law that governs a disputed-facts case next to the record.
 ---
 
-# analysis-legal
+# sources
 
-- statute criteria, then how the case's fact findings sit against them
-- guidance requirements, then what the record shows was done
-- judgments compared on the factors that decided them
-- statutes as Hayagriva in `refs/`; guidance and judgments in the evid set
-- quote statute and judgment text by key
+The statute: what it requires, then the findings of fact against that.
+
+The guidance: what it requires, then what the record shows was done.
+
+The judgments, compared on the factors that decided them.

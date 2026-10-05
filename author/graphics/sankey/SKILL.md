@@ -1,8 +1,7 @@
 ---
 name: sankey
 description: |
-  Use when a document needs a flow of quantities from one stage to the next: money, referrals, caseload, or throughput.
-  Not an organisation map (orgnet), not a narrative timeline, and not a bar or line chart.
+  Use when a document needs a flow of quantities from one stage to the next: money, referrals, caseload, throughput, children in shared/single custody, etc.
 license: MIT
 compatibility: Python with matplotlib, or plotly when the flow has many nodes.
 ---

@@ -9,7 +9,7 @@
     - maximally clear formulation
     - plain english
     - use nested bullet points
-    - use short sentences
+    - use short sentences, start each on a new line, or put in a clear line in between to denote a new paragraph
     - if needed, use # markdown chapters, but consider instead making two skills
     - clear name, steno description
     - avoid being source of truth, rather instruct how to establish source of truth

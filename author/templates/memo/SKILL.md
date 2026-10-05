@@ -54,9 +54,3 @@ Prose asserts. The close answers the question. Weight-bearing claims sit next to
 
 ## Output
 `typst compile main.typ` → `main.pdf`. A failed anchor throws. The PDF is a dated snapshot: one memo per angle, and competing angles are separate PDFs.
-
-## Mistakes
-- Inventing `refs.yml` or keys
-- Replacing generated keys
-- A wall of text
-- Editing an existing memo PDF instead of authoring a new dated one

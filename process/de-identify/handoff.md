@@ -1,2 +1,0 @@
-- hand off by exporting to pdf with placeholders (PII replaced with Person 1 etc) from did 
-- import into local evid set in same way as other docs

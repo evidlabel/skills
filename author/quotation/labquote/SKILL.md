@@ -10,7 +10,7 @@ compatibility: Requires typst on PATH. Package @preview/labquote:0.1.0. refs_to_
 Typst package: verbatim quotes from namespaced Hayagriva YAML. Gather fills `refs.yml`; this typesets `title:`. The `.typ` holds keys. Quote text stays in `refs.yml` until compile.
 
 ## Prior
-- never write quote text into `refs.yml` or the `.typ`
+- quote text stays in the gather output. The `.typ` holds keys
 - `# generated-by:` comments pass through
 - source: <https://github.com/evidlabel/labquote> — `#import "@preview/labquote:0.1.0": *`. `typst` on `$PATH`; first compile fetches `@preview`. Scaffold: `typst init @preview/labquote:0.1.0 my-doc`. Dev: clone + `./local_install.sh install`. Syntax: `template/main.typ`
 
@@ -21,20 +21,20 @@ Every evid command runs as `evid --db evid` from the case root. `scratch/` is ep
 2. `evid --db evid set gather <slug> -o scratch/gather.yml` — keys; quote bodies in `title:`
 3. Subset `refs.yml`: every cited key plus that doc's `:main`. Copy entries verbatim, watermarks included. Quote slugs carry `author:` and `date:` from that doc's `:main` (block headers read the quote entry). Later keys from a fresh gather
 4. `:main` `url:` comes from the doc `info.yml`. Empty after a local PDF add → write the source URL into `info.yml`, then gather
-5. Skeleton from gather (do not hand-write keys):
+5. Skeleton from gather:
 
 ```bash
 python3 <skill-dir>/scripts/refs_to_typ.py refs.yml -o main.typ --write-refs
 ```
 
-`--cite-style` as needed. Then write around the generated `#blockq` lines. Do not replace those keys. Do not switch to markdown `>`.
+`--cite-style` as needed. Then write around the generated `#blockq` lines. The keys stay as gathered. A quote stays a `#blockq`.
 6. `typst compile main.typ`. Failed anchor throws
 
 Read-only discovery; the only bare evid call in any skill: `evid set gather litc -o scratch/litc.yml`. Copy what you need into `evid/sets/<slug>/docs/` and gather the local set.
 
-`title:` is sacred — slice with `start:`/`end:`, never edit the body. `:main` title may be cleaned (filename slug → readable) as a string replace.
+`title:` is the quote. Slice it with `start:` and `end:`. `:main` title may be cleaned (filename slug → readable) as a string replace.
 
-Missing from `refs.yml` → name the gap and stop. Never invent YAML (no stub `title:` that is a heading or paragraph number). Package template keys (`0157:tale`) are syntax illustration — keys in the `.typ` are gather keys.
+A key missing from `refs.yml` is a gap. Name it and stop. A stub `title:` (a heading or a paragraph number) is not a quote. Package template keys (`0157:tale`) are syntax illustration. Keys in the `.typ` are gather keys.
 
 `bibliography-custom()` renders **every** store entry — unsubsetted dump = whole dataset on the back page.
 

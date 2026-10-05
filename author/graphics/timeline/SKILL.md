@@ -1,3 +1,10 @@
+---
+name: timeline
+description: Use when a social or family document needs a timeline of events, cooperation, the child's wishes, control, or testimony.
+---
+
+# timeline
+
 - timelines can be useful in social and family law documentation
 - use to 
     - give overview of key events in case

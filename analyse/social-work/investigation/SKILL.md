@@ -6,9 +6,13 @@ description: |
 ---
 
 # investigation
-
 - what the investigation looked at: the child, the home, school, health, the network
 - who was spoken to, and who was not
 - what the record contains, and what the investigation says is missing
 - the child's statements by key, separate from the caseworker's summary
 - no score for a parent or a child
+
+# goal setting --> separate skill on next pass
+- are the manuals for goal setting for the given professional class?
+- i.e. using SMART goals etc? if so, gather these and see if the goals adhere to this (are not vague, open ended, trivial, not aligned with interest of persons helped etc).
+

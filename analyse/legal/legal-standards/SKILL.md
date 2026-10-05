@@ -10,3 +10,10 @@ description: Use when a legal document is read against the professional and proc
   - ethical guideline for judges
   - court procedural manuals
   - law and judicial guidelines on administration of justice
+
+# burden of proof
+- check type of court and relevant burden of proof
+- be careful on matter
+  - family law --> civil BoP
+  - false statement to court --> criminal BoP
+ 

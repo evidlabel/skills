@@ -21,9 +21,9 @@ Related concepts:
 # burden of proof
 
 - For a civil matter, obtain the burden of proof for the jurisdiction and the date.
-  Names in use include more likely than not, and balance of probabilities.
+  One figure in use is 50 percent: more likely than not, or the balance of probabilities.
 - For a criminal matter, obtain the burden of proof for the jurisdiction and the date.
-  A name in use is beyond reasonable doubt.
+  One figure in use is 9x percent: beyond reasonable doubt.
 - List the other burdens this matter uses.
 
 # truth and probability

@@ -15,7 +15,7 @@
 
 | Fn | Job |
 |---|---|
-| `setup(data, blockquote-indent: 1em, cite-style: "full")` | once, near top. `"full"` `[d1, q2]` · `"brief"` `[d1,2]` · `"short"` `[1b]`. Legacy `cite-brief: true` = `"brief"` |
+| `setup(data, blockquote-indent: 1em, cite-style: "short")` | once, near top. This skill passes `"short"` `[1b]`. `"full"` `[d1, q2]` · `"brief"` `[d1,2]`. Legacy `cite-brief: true` = `"brief"` |
 | `multicite(keys)` | one bracket around a list |
 | `setup-bib(src, …)` | biblatex string instead |
 | `q(key, ..)` | inline quote trailing `[d, q]`; slice `start:`/`end:`/`pin:` |
@@ -34,7 +34,7 @@ Page font is Typst `#set text(font: "…")`, not a `setup()` argument.
 ```typst
 #import "@preview/labquote:0.1.0": *
 #set text(font: "…")
-#setup(yaml("refs.yml"), blockquote-indent: 1em)
+#setup(yaml("refs.yml"), blockquote-indent: 1em, cite-style: "short")
 
 #cite-ref("<gather-key>")
 #blockq("<gather-key>", start: "<verbatim>", end: "<verbatim>")

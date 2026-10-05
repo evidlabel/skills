@@ -1,8 +1,9 @@
 ---
 name: labquote
 description: |
-  Use when the user wants to render quotes, block quotes, bare cites, legal `Id.` back-references, or a grouped bibliography in a Typst document driven from a namespaced Hayagriva YAML file (as produced by `evid --db evid set gather`).
+  Use when the user wants to render quotes, block quotes, bare cites, legal `Id.` back-references, or a grouped bibliography in a Typst document driven from a namespaced Hayagriva YAML file.
   Triggers on "set up labquote", "block quote in Typst", "cite this snippet", "render my refs.yml as quotes", "keys-only Typst", "inline quote with superscript", "legal Id. back-reference", "grouped quote bibliography", "#blockq", "#inlineq", "#cite-ref", "labquote bibliography", or building a citable Typst document from labelled evidence.
+  The YAML comes from gather.
 license: MIT
 compatibility: |
   Requires typst on PATH.
@@ -13,9 +14,11 @@ compatibility: |
 # labquote
 
 Typst package: verbatim quotes from namespaced Hayagriva YAML.
-Gather fills `refs.yml`; this typesets `title:`.
+Gather fills `refs.yml`.
+This typesets `title:`.
 The `.typ` holds keys.
 Quote text stays in `refs.yml` until compile.
+Cite style is short unless the document asks for another.
 
 ## Prior
 - quote text stays in the gather output.
@@ -26,40 +29,28 @@ Quote text stays in `refs.yml` until compile.
   Scaffold: `typst init @preview/labquote:0.1.0 my-doc`.
   Dev: clone + `./local_install.sh install`.
   Syntax: `template/main.typ`
+- cite style defaults to `short` (`[1b]`).
+  `full` is `[d1, q2]`.
+  `brief` is `[d1,2]`.
 
-## Gather
-Every evid command runs as `evid --db evid` from the case root.
-`scratch/` is ephemeral and in `.gitignore`.
-
-1. Label: `evid --db evid doc quote` / `#lab`.
-   Print keys only.
-   Quote every source the `.typ` will exhibit, before gather
-2. `evid --db evid set gather <slug> -o scratch/gather.yml` — keys; quote bodies in `title:`
-3. Subset `refs.yml`: every cited key plus that doc's `:main`.
-   Copy entries verbatim, watermarks included.
-   Quote slugs carry `author:` and `date:` from that doc's `:main` (block headers read the quote entry).
-   Later keys from a fresh gather
-4. `:main` `url:` comes from the doc `info.yml`.
-   Empty after a local PDF add → write the source URL into `info.yml`, then gather
-5. Skeleton from gather:
+## Render
+`refs.yml` comes from gather.
+If it is missing, stop and use gather.
 
 ```bash
 python3 <skill-dir>/scripts/refs_to_typ.py refs.yml -o main.typ --write-refs
 ```
 
-`--cite-style` as needed.
+`--cite-style` defaults to `short`.
 Then write around the generated `#blockq` lines.
 The keys stay as gathered.
 A quote stays a `#blockq`.
-6. `typst compile main.typ`.
-   Failed anchor throws
 
-Read-only discovery; the only bare evid call in any skill: `evid set gather litc -o scratch/litc.yml`.
-Copy what you need into `evid/sets/<slug>/docs/` and gather the local set.
+`typst compile main.typ`.
+A failed anchor throws.
 
 `title:` is the quote.
 Slice it with `start:` and `end:`.
-`:main` title may be cleaned (filename slug → readable) as a string replace.
 
 A key missing from `refs.yml` is a gap.
 Name it and stop.
@@ -74,7 +65,7 @@ Keys and API: `references/api.md`.
 ```typst
 #import "@preview/labquote:0.1.0": *
 #set text(font: "…")
-#setup(yaml("refs.yml"), blockquote-indent: 1em)
+#setup(yaml("refs.yml"), blockquote-indent: 1em, cite-style: "short")
 
 #cite-ref("<gather-key>")
 #blockq("<gather-key>", start: "<verbatim>", end: "<verbatim>")

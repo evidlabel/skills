@@ -10,14 +10,16 @@ description: >
 
 Run this from the repo root. Read the output. That is the workflow. Open one leaf.
 
-```bash --> force the order by stringing tree commands together
-tree --gitignore --dirsfirst -I '.git|.gitkeep' ingest 
-tree --gitignore --dirsfirst -I '.git|.gitkeep' process 
+```bash
+tree --gitignore --dirsfirst -I '.git|.gitkeep' ingest
+tree --gitignore --dirsfirst -I '.git|.gitkeep' process
 tree --gitignore --dirsfirst -I '.git|.gitkeep' analyse
 tree --gitignore --dirsfirst -I '.git|.gitkeep' author
 ```
 
 **ingest** brings a source in. **process** changes a document before a model sees it. **analyse** reads the evid set. **author** shapes a document and argues from it. A gap in authoring goes back to ingest.
+
+**setup** is the harness. Open `setup/harness`.
 
 ## Rules
 

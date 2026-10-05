@@ -8,8 +8,6 @@ From the repo root:
 tree --gitignore --dirsfirst -I '.git|.gitkeep'
 ```
 
-**ingest** brings a source in. **process** changes a document before a model sees it. **analyse** reads the evid set. **author** shapes a document and argues from it.
-
 A file with no extension is the raw URL of a skill that lives in another repo.
 
 The router is [`SKILL.md`](SKILL.md) at the repo root (name `jura`). [`jura/SKILL.md`](jura/SKILL.md) points at it, so the directory name matches the skill name.

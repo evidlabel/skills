@@ -61,6 +61,6 @@ Weight-bearing claims sit next to their `#blockq`.
 Write around the generated keys; do not replace them; do not switch to markdown `>`.
 
 ## Output
-`typst compile main.typ` → `main.pdf`.
+`typst compile <clearname>.typ` → `<clearname>.pdf`.
 A failed anchor throws.
 The PDF is a dated snapshot: one memo per angle, and competing angles are separate PDFs.

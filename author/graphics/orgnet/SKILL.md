@@ -30,3 +30,10 @@ Drop an edge that no source names.
 Read the SVG before placing it.
 If the net is unreadable, restack it.
 Do not delete a named org to make it pretty.
+
+# variants
+- org membership only 
+- membership and formal collaboration
+- person and org 
+- finance stream and org
+- further depth 

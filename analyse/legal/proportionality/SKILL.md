@@ -1,14 +1,18 @@
 ---
 name: proportionality
-description: Use when testing an intervention in family life, one measure at a time.
+description: Use when a measure is tested for proportionality.
 ---
 
 # proportionality
 
-The measures, one at a time.
-Obtain the test from the statute in force on the date of the measure, including how that statute states suitability, necessity, and the balance.
-Are the stated reasons in the record?
-Did the parents and the child take part?
+One measure at a time.
 
-Evidence for, evidence against, and the gaps.
-No score and no conclusion on the measure.
+Find how proportionality is seen in the jurisdiction that applies, for this kind of measure, on the date of the measure.
+Obtain that from the statute and the decisions that jurisdiction uses.
+Apply it to the record.
+
+The reasons the record gives.
+The evidence for the measure, the evidence against it, and the gaps.
+
+No score.
+No conclusion on the measure.

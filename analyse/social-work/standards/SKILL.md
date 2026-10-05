@@ -11,7 +11,7 @@ Note whether the author was authorized, and record that on the case. Which rules
 
 ## What to get
 
-Take these from the case evid set, and only the ones the record treats as binding:
+Take these from the case evid set (add them if not there), and only the ones the record treats as binding:
 
 - the statute the decision applies
 - the guidance the document says it followed

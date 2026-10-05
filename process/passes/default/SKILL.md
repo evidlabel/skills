@@ -1,0 +1,12 @@
+
+- passes to generally run
+- in case file, use evid pass to mark 
+  - statements of fact
+  - judgements
+  - professional evaluations
+  - stated opinions
+  - accusations
+  - diagnoses
+  - claims
+  - statements expressing wishes, goals or intent
+  - generally add who made the statement

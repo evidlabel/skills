@@ -19,9 +19,12 @@ Related concepts:
   Obtain the exact wording for the jurisdiction and the date.
 
 # burden of proof
-- civil --> 50% (more likely than not, balance of probabilities) 
-- criminal --> 9x% (beyond reasonable doubt)
-- other (list out the others)
+
+- For a civil matter, obtain the burden of proof for the jurisdiction and the date.
+  Names in use include more likely than not, and balance of probabilities.
+- For a criminal matter, obtain the burden of proof for the jurisdiction and the date.
+  A name in use is beyond reasonable doubt.
+- List the other burdens this matter uses.
 
 # truth and probability
 

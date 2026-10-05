@@ -10,7 +10,7 @@ description: Use when a social or family document needs a timeline of events, co
     - give overview of key events in case
     - illustrate a history of collaboration, or absence of it
     - illustrate changes in expressed wishes of a child, aligned with circumstances
-    - history of controlling behavior (as per coercive control or psychological violence definitions)
+    - a history of controlling behavior, under the coercive-control or psychological-violence definition in the evid set
     - history of changing testimony
     - sequencing as it pertains to credibility, i.e. accusations after start of family law case vs accusations prior 
 - when making timelines, prune unneeded detail to make clear and readable

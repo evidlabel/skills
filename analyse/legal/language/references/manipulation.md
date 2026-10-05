@@ -2,6 +2,8 @@
 
 Labels observable pressure and distortion tactics in messages between parties, or aimed at the child. It describes messages. It does not diagnose people.
 
+The labels in the table are how this pass records a span. Which of them this case can use comes from the statute and the guidance in the evid set: coercive control, psychological violence, or the definition the record itself uses.
+
 ## `language/manipulation/tactics@1` (basic)
 
 **In scope:** messages, emails, letters, and recorded statements addressed from one person to another (party to party, party to child, party to authority).

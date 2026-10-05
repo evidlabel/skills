@@ -1,0 +1,10 @@
+- timelines can be useful in social and family law documentation
+- use to 
+    - give overview of key events in case
+    - illustrate a history of collaboration, or absence of it
+    - illustrate changes in expressed wishes of a child, aligned with circumstances
+    - history of controlling behavior (as per coercive control or psychological violence definitions)
+    - history of changing testimony
+    - sequencing as it pertains to credibility, i.e. accusations after start of family law case vs accusations prior 
+- when making timelines, prune unneeded detail to make clear and readable
+- read the result in and iterate to ensure output quality

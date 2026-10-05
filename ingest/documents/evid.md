@@ -1,4 +1,7 @@
 - use evid to create a local document cache
+  - take sources from internet 
+  - local evid db's
+  - domdb, lawcite, hudoc etc. 
 - building this cache allows the later stages to search the docs, quote them precisely, etc. 
 - evid is a treeparse app, use evid -h to figure out how to use it 
 - import docs from global cache, urls, dirs as needed

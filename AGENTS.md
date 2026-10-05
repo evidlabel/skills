@@ -19,5 +19,5 @@
     - write for reasonable and knowledgeable human (assume agents will work well on this standard in due time)
     - avoid writing bossy or jarring language (old pattern to try to force LLMs) 
     - avoid writing mistakes, anti patterns etc (creates verbosity and unclarity for humans)
-
+    - avoid writing Scope: Done: Avoid: style chapters, this is agent directed jargon for lower intel models, unnecessary use of human bandwidth
 

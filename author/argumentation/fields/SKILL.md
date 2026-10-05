@@ -5,7 +5,8 @@ description: Use when a family or social case may touch more than one field of l
 
 # fields
 
-A family or social case can touch more than one field. A family case can include a civil question, a criminal question, a human-rights question, and a social-law question.
+A family or social case can touch more than one field.
+A family case can include a civil question, a criminal question, a human-rights question, and a social-law question.
 
 - Identify the fields the facts can touch.
 - Obtain the statute and the guidance for each field, for this jurisdiction and this date.

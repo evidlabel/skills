@@ -1,12 +1,15 @@
 # evasiveness
 
-Finds answers that don't answer, and vagueness on material points. Measured against the same speaker's baseline, not an ideal.
+Finds answers that don't answer, and vagueness on material points.
+Measured against the same speaker's baseline, not an ideal.
 
 ## `language/evasiveness/qa@1` (basic)
 
 **In scope:** interview records and transcripts, hearing transcripts, email or message threads where one party asks a direct question.
 
-**Instruction:** For each direct question put to a person, extract the answer span (verbatim, one page). If the question is in the same document, also extract the question as its own candidate. Label the answer.
+**Instruction:** For each direct question put to a person, extract the answer span (verbatim, one page).
+If the question is in the same document, also extract the question as its own candidate.
+Label the answer.
 
 **note (answer):**
 ```json
@@ -22,17 +25,22 @@ Types: `direct` answers what was asked; `partial` answers part of it; `non-answe
 
 **In scope:** any first-person account.
 
-**Instruction:** Extract spans where an assertion about a material fact is qualified or made vague. Label the kind.
+**Instruction:** Extract spans where an assertion about a material fact is qualified or made vague.
+Label the kind.
 
 **note:** `{"speaker": "…", "topic": "<slug>", "kind": "hedge|vague-time|vague-agent|agentless-passive|approximation", "confidence": 0.0}`
 
-Markers (non-exhaustive): "I think / I believe / maybe / sort of / around then / things happened / mistakes were made"; Danish: "vist nok", "måske", "jeg tror", "på et tidspunkt", "der blev sagt", "det kan godt være". Markers are a starting point. Label what the sentence does, not the word.
+Markers (non-exhaustive): "I think / I believe / maybe / sort of / around then / things happened / mistakes were made"; Danish: "vist nok", "måske", "jeg tror", "på et tidspunkt", "der blev sagt", "det kan godt være".
+Markers are a starting point.
+Label what the sentence does, not the word.
 
 ## `language/evasiveness/profile@1` (composite)
 
 **Inputs:** passes with job prefix `language/evasiveness/qa@` (required) and `language/evasiveness/hedges@` (optional).
 
-**Procedure:** For each respondent and topic, count answers by `answer_type` and hedges by `kind`. Compute the baseline as the same respondent's rates on topics not in dispute. A topic is flagged only when its non-direct rate clearly exceeds that respondent's baseline, with at least 3 answers on that topic.
+**Procedure:** For each respondent and topic, count answers by `answer_type` and hedges by `kind`.
+Compute the baseline as the same respondent's rates on topics not in dispute.
+A topic is flagged only when its non-direct rate clearly exceeds that respondent's baseline, with at least 3 answers on that topic.
 
 **Finding:**
 ```json
@@ -42,7 +50,10 @@ Markers (non-exhaustive): "I think / I believe / maybe / sort of / around then /
             "baseline_rate": 0.2, "hedges": 4, "flag": true}}
 ```
 
-**Cautions:** Memory claims can be genuine, especially for old or routine events. Interview conditions (a leading question, the presence of the other party) can produce non-answers. Report the profile. Don't infer motive.
+**Cautions:** Memory claims can be genuine, especially for old or routine events.
+Interview conditions (a leading question, the presence of the other party) can produce non-answers.
+Report the profile.
+Don't infer motive.
 
 ## Done
 - Every respondent with at least one answer has a profile row.

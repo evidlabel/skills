@@ -1,7 +1,11 @@
 ## Keys
 - `<doc>:<slug>` — first colon groups sources (`0157:tale`)
-- `<doc>:main` — document metadata (title, author, date, url). Bibliography parent; `#cite-ref` of the work. Not a quote body
-- `#blockq` / `#q` / `#inlineq` take a quote slug (`:q1`, `:tale`). Quote `title:` is the passage. Missing slug → `doc quote`, gather again
+- `<doc>:main` — document metadata (title, author, date, url).
+  Bibliography parent; `#cite-ref` of the work.
+  Not a quote body
+- `#blockq` / `#q` / `#inlineq` take a quote slug (`:q1`, `:tale`).
+  Quote `title:` is the passage.
+  Missing slug → `doc quote`, gather again
 - quote body in **`title:`** (not `note:`)
 - `d1, d2, …` / `q1, q2, …` assigned in order of first appearance — never hand-assign
 - no colon → `<key>:main` (metadata only, bare `[d]`)
@@ -21,7 +25,9 @@
 | `id(pin: …)` | legal `Id.` — last cite |
 | `bibliography-custom(brief: false, title: auto)` | grouped back page; slice italicised. Heading from `text.lang` (da → "Referencer") |
 
-`start:`/`end:` = verbatim substrings. Gather generously; slice tightly. Back page reprints the whole entry with the slice italicised.
+`start:`/`end:` = verbatim substrings.
+Gather generously; slice tightly.
+Back page reprints the whole entry with the slice italicised.
 
 Page font is Typst `#set text(font: "…")`, not a `setup()` argument.
 

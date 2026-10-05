@@ -1,6 +1,6 @@
 ---
 name: investigation
-description: >
+description: |
   Use when reading a social-work investigation in a disputed-facts case.
   What was looked at, who was spoken to, and what the record is missing.
 ---

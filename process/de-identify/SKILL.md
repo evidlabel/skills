@@ -5,7 +5,10 @@ description: Use when a local model strips identifiers with did, checks the resu
 
 # de-identify
 
-The tool is the URL in `did`. Open it and follow it. A local model drives it. The router keeps identifiable text on that local model.
+The tool is the URL in `did`.
+Open it and follow it.
+A local model drives it.
+The router keeps identifiable text on that local model.
 
 - review the output for a leaked identifier
 - review entries that are variants of one identifier

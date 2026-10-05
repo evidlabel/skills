@@ -1,6 +1,7 @@
 # attribution
 
-For each assertion of fact, labels how the speaker knows it. Other analyses use this to separate what was witnessed from what was passed on.
+For each assertion of fact, labels how the speaker knows it.
+Other analyses use this to separate what was witnessed from what was passed on.
 
 ## `language/attribution/sources@1` (basic)
 

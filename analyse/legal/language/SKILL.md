@@ -5,7 +5,9 @@ description: Use when reading how things are said in a disputed-facts case — c
 
 # language
 
-Every party. Label the span, not the person. Load only the method in hand.
+Every party.
+Label the span, not the person.
+Load only the method in hand.
 
 | Method | What it labels | File |
 | --- | --- | --- |

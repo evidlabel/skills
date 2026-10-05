@@ -1,8 +1,7 @@
 ---
 name: measures
-description: >
-  Use when reading the social-work record of a measure in a disputed-facts
-  case: what was proposed or in force, and what the record says it was for.
+description: |
+  Use when reading the social-work record of a measure in a disputed-facts case: what was proposed or in force, and what the record says it was for.
   The legal test of a measure is proportionality.
 ---
 

@@ -1,14 +1,19 @@
 # manipulation
 
-Labels observable pressure and distortion tactics in messages between parties, or aimed at the child. It describes messages. It does not diagnose people.
+Labels observable pressure and distortion tactics in messages between parties, or aimed at the child.
+It describes messages.
+It does not diagnose people.
 
-The labels in the table are how this pass records a span. Which of them this case can use comes from the statute and the guidance in the evid set: coercive control, psychological violence, or the definition the record itself uses.
+The labels in the table are how this pass records a span.
+Which of them this case can use comes from the statute and the guidance in the evid set: coercive control, psychological violence, or the definition the record itself uses.
 
 ## `language/manipulation/tactics@1` (basic)
 
 **In scope:** messages, emails, letters, and recorded statements addressed from one person to another (party to party, party to child, party to authority).
 
-**Instruction:** Extract spans that use one of the tactics below. One candidate per span, one tactic label per candidate (the strongest). Skip ordinary disagreement and firm but plain refusals.
+**Instruction:** Extract spans that use one of the tactics below.
+One candidate per span, one tactic label per candidate (the strongest).
+Skip ordinary disagreement and firm but plain refusals.
 
 **note:**
 ```json
@@ -30,12 +35,15 @@ The labels in the table are how this pass records a span. Which of them this cas
 
 ## `language/manipulation/pattern@1` (composite)
 
-**Inputs:** passes with job prefix `language/manipulation/tactics@` (required). Optional: the newest `analysis/evidence/timeline/*.json` and `analysis/language/contradiction/*.json`.
+**Inputs:** passes with job prefix `language/manipulation/tactics@` (required).
+Optional: the newest `analysis/evidence/timeline/*.json` and `analysis/language/contradiction/*.json`.
 
 **Procedure:**
 1. Count tactics per `from`→`to` direction, per month.
 2. Report the trend: `rising`, `falling`, `stable`, or `episodic`.
-3. Check each `reality-denial` against the optional inputs. If the record shows the denied event, add `values.record_conflict` with the source of that event. If no record exists either way, list it under `gaps`.
+3. Check each `reality-denial` against the optional inputs.
+   If the record shows the denied event, add `values.record_conflict` with the source of that event.
+   If no record exists either way, list it under `gaps`.
 4. Always report both directions for every pair of parties, including zero counts.
 
 **Finding:**
@@ -46,7 +54,9 @@ The labels in the table are how this pass records a span. Which of them this cas
             "trend": "rising", "record_conflict": [{"analysis": "analysis/evidence/timeline/…json", "finding": "f12"}]}}
 ```
 
-**Rules:** Never use clinical or syndrome terms (e.g. "narcissist", "parental alienation syndrome") for a person. Findings are counts and spans. Whether a pattern matters legally is decided in authoring.
+**Rules:** Never use clinical or syndrome terms (e.g. "narcissist", "parental alienation syndrome") for a person.
+Findings are counts and spans.
+Whether a pattern matters legally is decided in authoring.
 
 ## Done
 - Both directions are reported for every pair of parties.

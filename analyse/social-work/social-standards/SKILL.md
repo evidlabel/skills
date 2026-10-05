@@ -7,7 +7,8 @@ description: >
 
 # social-standards
 
-Note whether the author was authorized, and record that on the case. Which rules apply, and what recourse exists, depend on it.
+Note whether the author was authorized, and record that on the case.
+Which rules apply, and what recourse exists, depend on it.
 
 ## What to get
 
@@ -18,8 +19,11 @@ Take these from the case evid set (add them if not there), and only the ones the
 - the professional and ethical rules for the profession the document names
 - the standard for that kind of document, when the record names one
 
-A source the record names that is not in the set is a gap. Name it and go back to ingest.
+A source the record names that is not in the set is a gap.
+Name it and go back to ingest.
 
 ## How to extract
 
-From each of those documents, take what it requires of this author and this kind of document. Quote the requirement by key. Set it next to what the record shows was done, and name what the record does not show.
+From each of those documents, take what it requires of this author and this kind of document.
+Quote the requirement by key.
+Set it next to what the record shows was done, and name what the record does not show.

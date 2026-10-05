@@ -1,22 +1,21 @@
 ---
 name: typst_use
 description: >
-  Use when setting up or shaping a Typst document: page size and margins, body
-  font and language, paragraph justification, page numbers, an outline, and a
-  title block suited to a document type (memo, brief, letter, book, booklet,
-  plain). Triggers on "set up the document", "page margins", "A4", "which
-  font", "title block", "memo header", "letterhead", "document shape". Not for
-  gathering quotes or writing the argument.
+  Use when setting the page, the body text, or a title block in a Typst
+  document: margins, font, language, justification, page numbers, an outline.
+  Triggers on "set up the document", "page margins", "A4", "which font",
+  "title block", "letterhead". The document is a folder under author/templates.
+  Not for gathering quotes or writing the argument.
 license: MIT
 compatibility: Requires typst on PATH.
 ---
 
 # typst_use
 
-Typst ships with almost no document conventions. This skill supplies the shell
-of a document: the page, the body text, the paragraph rules, and a title block
-for the relevant document type. Quotations stay in the Hayagriva file. The
-argument is written around those keys.
+Typst ships with almost no document conventions. This skill supplies the shell:
+the page, the body text, the paragraph rules, and a title block. The document
+is a folder under `author/templates`. Quotations stay in the Hayagriva file.
+The argument is written around those keys.
 
 ## Using the script
 
@@ -58,18 +57,18 @@ These flags override the preset:
 The preamble also gives headings a restrained size, so that the title block
 remains visually dominant.
 
-## Document types
+## Title block
 
-The `title` command renders a title block for one of six document types:
+`title --doc-type` prints a title block and nothing else. The document is the skill under `author/templates/` with the same name. Open that skill for what the document contains and where the block sits.
 
-| `--doc-type` | What it renders |
-|--------------|-----------------|
-| `memo` | A To/From/Date/Subject grid under a rule. Flags: `--to`, `--sender`, `--date`, `--subject`. |
-| `brief` | A short description on the left and the date on the right, under a hairline. Flags: `--title`, `--date`. |
-| `letter` | A right-aligned sender, then the date, the recipient, and a bold Subject. Flags: `--sender`, `--recipient`, `--date`, `--subject`. |
-| `book` | A title page with title, subtitle, author, and date, followed by a page break. Flags: `--title`, `--subtitle`, `--author`, `--date`. |
-| `booklet` | A compact centered title with subtitle, author, and date. Same flags as `book`. |
-| `plain` | A centered bold title with an optional date. Flags: `--title`, `--date`. |
+| `--doc-type` | Template | What the script prints |
+|--------------|----------|------------------------|
+| `memo` | `author/templates/memo` | A To/From/Date/Subject grid under a rule. Flags: `--to`, `--sender`, `--date`, `--subject`. |
+| `brief` | `author/templates/brief` | A short description on the left and the date on the right, under a hairline. Flags: `--title`, `--date`. |
+| `letter` | `author/templates/letter` | A right-aligned sender, then the date, the recipient, and a bold Subject. Flags: `--sender`, `--recipient`, `--date`, `--subject`. |
+| `book` | `author/templates/book` | A title page with title, subtitle, author, and date, followed by a page break. Flags: `--title`, `--subtitle`, `--author`, `--date`. |
+| `booklet` | `author/templates/booklet` | A compact centered title with subtitle, author, and date. Same flags as `book`. |
+| `plain` | `author/templates/plain` | A centered bold title with an optional date. Flags: `--title`, `--date`. |
 
 In `--sender` and `--recipient`, the two characters `\n` produce a line break.
 A field with no value drops its row, and a block with no fields renders
@@ -96,4 +95,4 @@ you want them numbered.
 #bibliography-custom()
 ```
 
-This file sets the page, the type, and the title block. It does not gather quotations, and it does not write the argument.
+This file sets the page, the body text, and the title block. The document is a folder under `author/templates`. Quotations stay in the Hayagriva file. The argument is written around those keys.

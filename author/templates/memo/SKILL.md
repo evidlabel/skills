@@ -13,13 +13,13 @@ compatibility: Requires typst on PATH and the @preview/labquote Typst package.
 
 # memo
 
-A dated memo that answers one question, built from verbatim quotes.
+A dated memo that answers one question, built from verbatim quotes. A document that only exhibits the quotes is `quote_summary`.
 
 ## Precondition
 `refs.yml` and a generated `main.typ` (with `#blockq` lines) sit side by side. If either is missing, stop and say so. Never write `refs.yml` or keys by hand.
 
 ## Shape
-Date top right. The title names the question. Then:
+Date top right. The title names the question. A To/From/Date/Subject grid is the `memo` title block from typst_use, for correspondence. Then:
 
 question → clauses (`#blockq` + unpacking bullets) → analysis headings → one-sentence close → `#bibliography-custom()`
 

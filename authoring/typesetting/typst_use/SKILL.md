@@ -90,8 +90,3 @@ It lists the headings in document order; add `--sec-numbering` to the preamble i
 #blockq("…")
 #bibliography-custom()
 ```
-
-This file sets the page, the body text, and the title block.
-The document is a folder under `authoring/templates`.
-Quotations stay in the Hayagriva file.
-The argument is written around those keys.

@@ -3,7 +3,7 @@ name: jura
 description: |
   Use for social-legal work where the facts are contested.
   Run tree in this repo and open one leaf.
-  The directories are the workflow: ingest, process, analyse, author.
+  The directories are the workflow: ingestion, processing, analysis, authoring.
 ---
 
 # jura
@@ -14,17 +14,17 @@ That is the workflow.
 Open one leaf.
 
 ```bash
-tree --gitignore --dirsfirst -I '.git|.gitkeep' ingest
-tree --gitignore --dirsfirst -I '.git|.gitkeep' process
-tree --gitignore --dirsfirst -I '.git|.gitkeep' analyse
-tree --gitignore --dirsfirst -I '.git|.gitkeep' author
+tree --gitignore --dirsfirst -I '.git|.gitkeep' ingestion
+tree --gitignore --dirsfirst -I '.git|.gitkeep' processing
+tree --gitignore --dirsfirst -I '.git|.gitkeep' analysis
+tree --gitignore --dirsfirst -I '.git|.gitkeep' authoring
 ```
 
-**ingest** brings a source in.
-**process** changes a document before a model sees it.
-**analyse** reads the evid set.
-**author** shapes a document and argues from it.
-A gap in authoring goes back to ingest.
+**ingestion** brings a source in.
+**processing** changes a document before a model sees it.
+**analysis** reads the evid set.
+**authoring** shapes a document and argues from it.
+A gap in authoring goes back to ingestion.
 
 **setup** is the harness.
 Open `setup/harness`.

@@ -13,6 +13,6 @@ From the case root, `evid --db evid`.
 The file of the same name is the URL of that tool's skill.
 Open it and follow it.
 
-- lawcite: Danish statutes from retsinformation (`ingest/danish-statutes/lawcite`)
-- domdb: Danish judgments from Domsdatabasen (`ingest/danish-verdicts/domdb`)
-- hudoc: Council of Europe documents from a HUDOC subsite (`ingest/council-of-europe-download/hudoc`)
+- lawcite: Danish statutes from retsinformation (`ingestion/danish-statutes/lawcite`)
+- domdb: Danish judgments from Domsdatabasen (`ingestion/danish-verdicts/domdb`)
+- hudoc: Council of Europe documents from a HUDOC subsite (`ingestion/council-of-europe-download/hudoc`)

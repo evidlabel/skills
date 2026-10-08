@@ -20,7 +20,7 @@ Take these from the case evid set (add them if not there), and only the ones the
 - the standard for that kind of document, when the record names one
 
 A source the record names that is not in the set is a gap.
-Name it and go back to ingest.
+Name it and go back to ingestion.
 
 ## How to extract
 

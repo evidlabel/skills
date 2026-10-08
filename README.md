@@ -13,7 +13,6 @@ tree --gitignore --dirsfirst -I '.git|.gitkeep'
 A file with no extension is the raw URL of a skill that lives in another repo.
 
 The router is [`SKILL.md`](SKILL.md) at the repo root (name `jura`).
-[`jura/SKILL.md`](jura/SKILL.md) points at it, so the directory name matches the skill name.
 
 Point `[skills].paths` at a skill folder.
 The directory name is the skill name.

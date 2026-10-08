@@ -1,8 +1,6 @@
 ---
 name: examination
-description: |
-  Use when reading how a psychological examination in a disputed-facts case was carried out.
-  Who was seen, which methods the report says were used, and what it says it did not do.
+description: Use for psychological examinations.
 ---
 
 # examination

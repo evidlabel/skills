@@ -3,6 +3,7 @@ name: jura
 description: |
   Use for social-legal work where the facts are contested.
   Run tree in this repo and open one leaf.
+  The leaf page is index.md.
   The directories are the workflow: ingestion, processing, analysis, authoring.
 ---
 
@@ -12,6 +13,12 @@ Run this from the repo root.
 Read the output.
 That is the workflow.
 Open one leaf.
+Read `index.md` there.
+If the leaf has no `index.md`, read `SKILL.md`.
+
+This file is the skill for the tree.
+`labquote` and `memo` keep `SKILL.md` because each is installed alone.
+A folder that only holds other folders is the path to a leaf.
 
 ```bash
 tree --gitignore --dirsfirst -I '.git|.gitkeep' ingestion

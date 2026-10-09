@@ -1,6 +1,8 @@
 
 - principles
     - micro skill tree
+    - a leaf page is index.md
+    - SKILL.md is the root router, or a leaf installed as its own skill
     - tree structure important information, think about correct naming, hierarchy and depth
     - use git to track and merge and create time dimension in tree
 
@@ -10,7 +12,7 @@
     - plain english
     - use nested bullet points
     - use short sentences, start each on a new line, or put in a clear line in between to denote a new paragraph
-    - if needed, use # markdown chapters, but consider instead making two skills
+    - if needed, use # markdown chapters, but consider instead making two leaves
     - clear name, steno description
     - avoid being source of truth, rather instruct how to establish source of truth
         - example: 

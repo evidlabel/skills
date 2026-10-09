@@ -1,8 +1,7 @@
 # skills
 
-Agent skills for work from an evid set.
+Work from an evid set.
 The directory tree is the workflow.
-A skill folder keeps the skill `name`, with `SKILL.md` plus optional `scripts/` and `references/` beside it.
 
 From the repo root:
 
@@ -10,12 +9,16 @@ From the repo root:
 tree --gitignore --dirsfirst -I '.git|.gitkeep'
 ```
 
-A file with no extension is the raw URL of a skill that lives in another repo.
-
 The router is [`SKILL.md`](SKILL.md) at the repo root (name `jura`).
+Point `[skills].paths` at this repo.
+That loads the router.
 
-Point `[skills].paths` at a skill folder.
-The directory name is the skill name.
+A leaf page is `index.md`.
+Open that page from the router.
+`labquote` and `memo` are installed as their own skills, so those leaves keep `SKILL.md`.
+A folder that only holds other folders is the path to a leaf.
+
+A file with no extension is the raw URL of a skill that lives in another repo.
 
 `typst` on `$PATH`.
 Package `@preview/labquote:0.1.0` is fetched on first compile, or install locally from [evidlabel/labquote](https://github.com/evidlabel/labquote) via `./local_install.sh`.

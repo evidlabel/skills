@@ -12,7 +12,7 @@ compatibility: Requires typst on PATH.
 # typst_use
 
 Typst ships with almost no document conventions.
-This skill supplies the shell: the page, the body text, the paragraph rules, and a title block.
+This page supplies the shell: the page, the body text, the paragraph rules, and a title block.
 The document is a folder under `authoring/templates`.
 Quotations stay in the Hayagriva file.
 The argument is written around those keys.
@@ -55,8 +55,9 @@ The preamble also gives headings a restrained size, so that the title block rema
 ## Title block
 
 `title --doc-type` prints a title block and nothing else.
-The document is the skill under `authoring/templates/` with the same name.
-Open that skill for what the document contains and where the block sits.
+The document is the folder under `authoring/templates/` with the same name.
+Open `index.md` there.
+`memo` keeps `SKILL.md`.
 
 | `--doc-type` | Template | What the script prints |
 |--------------|----------|------------------------|

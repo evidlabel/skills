@@ -1,0 +1,348 @@
+{
+  "notes": {
+    "analysis": "Reads the evid set. Domains: legal, psychology, social work. The method folder is the skill.",
+    "analysis/legal": "Methods for the law and the record. The method folder is the skill.",
+    "analysis/legal/credibility": "Whether a statement can be relied on: contradictions, history, a recorded condition, plausibility, corroboration.",
+    "analysis/psychology": "Examination, opinion, the standards that governed the work, and the terms the psychologist used.",
+    "analysis/psychology/examination": "Who was seen, which methods the report says were used, and what it says it did not do.",
+    "analysis/psychology/opinion": "Each opinion next to the observation the report cites for it.",
+    "analysis/psychology/professionalism": "Whether the terms are the professional ones, used correctly, and explained to a lay reader.",
+    "analysis/psychology/standards": "Whether the psychologist was authorized, and which statute, guidelines, and diagnostic system applied.",
+    "analysis/social-work": "add a similar standards skill as for psychology, make sure that it tells the agent what to get and how to extract the standards without repeating standards here",
+    "analysis/social-work/investigation": "What was looked at, who was spoken to, and what the record is missing.",
+    "analysis/social-work/measures": "What was proposed or in force, and what the record says it was for. The legal test is proportionality.",
+    "authoring/graphics": "Pictures in a document: timeline, org net, sankey, charts.",
+    "authoring/graphics/charts": "A bar, a line, or a distribution, as SVG.",
+    "authoring/graphics/orgnet": "How organisations connect. Neato, D2, or Mermaid.",
+    "authoring/graphics/sankey": "A flow of quantities from one stage to the next.",
+    "authoring/quotation/labquote/SKILL.md": "Verbatim quotes in Typst from a Hayagriva refs.yml. Authoring, not analysis.",
+    "authoring/templates/book": "Typst book. Chapters are separate files included from main.typ.",
+    "authoring/templates/booklet": "One file. Compact title, then the text.",
+    "authoring/templates/brief": "Description and date on one line, then the body.",
+    "authoring/templates/letter": "Sender, date, recipient, and subject, then the letter.",
+    "authoring/templates/plain": "Centered title and an optional date.",
+    "authoring/templates/quote_summary": "A document that is only the relevant labquote passages. It does not conclude.",
+    "authoring/typesetting/typst_use/SKILL.md": "Page, body text, and title block. The document is the folder under author/templates with the same name.",
+    "ingestion/council-of-europe-download/hudoc": "A file, not a directory. No extension means the body is the raw URL of a skill that lives in another repo. Same pattern as lawcite, domdb, and did.",
+    "jura": "Main router skill. The directories are the workflow.",
+    "jura/SKILL.md": "Same file as the root SKILL.md (symlink). The repo session loads the root; jura/ is the install directory, and its name is the skill name."
+  },
+  "feedback": [
+    {
+      "id": 1,
+      "paths": [
+        "analysis/legal/language/SKILL.md"
+      ],
+      "text": "lost some important detail here, this had some real detail before",
+      "status": "done",
+      "reply": "Restored the four method files (contradiction, evasiveness, manipulation, attribution) beside the skill. The skill names what each one labels. (6310a2b)",
+      "created": "2026-10-04T21:26:36+02:00",
+      "updated": "2026-10-04T21:31:55+02:00"
+    },
+    {
+      "id": 2,
+      "paths": [
+        "analysis/legal/standards/SKILL.md"
+      ],
+      "text": "add frontmatter",
+      "status": "done",
+      "reply": "Added name and description frontmatter. The document list is unchanged. (d0662df)",
+      "created": "2026-10-04T21:27:38+02:00",
+      "updated": "2026-10-04T21:32:01+02:00"
+    },
+    {
+      "id": 3,
+      "paths": [
+        "processing/de-identify/did.md"
+      ],
+      "text": "add frontmatter",
+      "status": "done",
+      "reply": "Added name and description frontmatter above the existing route. (6483638)",
+      "created": "2026-10-04T21:28:19+02:00",
+      "updated": "2026-10-04T21:32:07+02:00"
+    },
+    {
+      "id": 4,
+      "paths": [
+        "README.md"
+      ],
+      "text": "seems unnec syncing work to keep this up to date, not easier to have either a treeparse cli that discloses  or just run tree command on the top dir to get",
+      "status": "done",
+      "reply": "Removed the skill table and the path list. The README now says to run tree from the repo root. (7fd46b5)",
+      "created": "2026-10-04T21:29:55+02:00",
+      "updated": "2026-10-04T21:32:14+02:00"
+    },
+    {
+      "id": 5,
+      "paths": [
+        "setup/opencode"
+      ],
+      "text": "this advice is generic for agent harnesses, rename opencode to harness",
+      "status": "done",
+      "reply": "renamed setup/opencode to setup/harness and made the notes generic for an agent harness (03ff9f4)",
+      "created": "2026-10-04T21:52:59+02:00",
+      "updated": "2026-10-04T22:01:33+02:00"
+    },
+    {
+      "id": 6,
+      "paths": [
+        "ingestion"
+      ],
+      "text": "for lawcite, domdb, hudoc, create one sources/SKILL.md explaining how these can be used to obtain documents from certain sources, that these generally do not contain PII, therefore can be used directly in local evid db",
+      "status": "done",
+      "reply": "added ingest/sources/SKILL.md: lawcite, domdb, and hudoc fetch public documents and go straight into the local evid set (1595331)",
+      "created": "2026-10-04T21:56:01+02:00",
+      "updated": "2026-10-04T22:02:37+02:00"
+    },
+    {
+      "id": 7,
+      "paths": [
+        "analysis/psychology/professionalism/SKILL.md"
+      ],
+      "text": "deal with merging issue in this",
+      "status": "done",
+      "reply": "Checklist stays in standards (9a24f92). professionalism/SKILL.md is only the terminology check (4128ea6). Left the unsaved draft on that file untouched.",
+      "created": "2026-10-04T22:06:18+02:00",
+      "updated": "2026-10-04T22:20:07+02:00"
+    },
+    {
+      "id": 8,
+      "paths": [
+        "ingestion/danish-verdicts/domdb"
+      ],
+      "text": "remove the empty dirs",
+      "status": "done",
+      "reply": "Removed process/date-extraction. It held only a gitignored .gitkeep, so git has no commit for it. danish-verdicts, danish-statutes, and council-of-europe-download stay: each holds its URL file.",
+      "created": "2026-10-05T13:34:07+02:00",
+      "updated": "2026-10-05T14:01:53+02:00"
+    },
+    {
+      "id": 9,
+      "paths": [
+        "analysis/legal/proportionality/SKILL.md"
+      ],
+      "text": "this is too specific, reframe to let the agent find out how to evaluate how proportionality is seen in a given jurisdiction and to apply it",
+      "status": "done",
+      "reply": "Reframed proportionality: find how that jurisdiction sees the test for this kind of measure, on that date, then apply it to the record. Dropped the fixed suitability, necessity, and balance steps and the family-participation questions. (6dd3713)",
+      "created": "2026-10-05T14:12:14+02:00",
+      "updated": "2026-10-05T14:16:37+02:00"
+    },
+    {
+      "id": 10,
+      "paths": [
+        "authoring/quotation/labquote/SKILL.md"
+      ],
+      "text": "split out gather from labquote into sep skill quotation/gather/SKILL.md\n\nfor labquote set default style to short",
+      "status": "done",
+      "reply": "Split the evid gather steps into author/quotation/gather. Labquote only typesets, and the cite style defaults to short. (8f51e41)",
+      "created": "2026-10-05T14:18:16+02:00",
+      "updated": "2026-10-05T14:24:19+02:00"
+    },
+    {
+      "id": 11,
+      "paths": [
+        "processing/de-identify/did"
+      ],
+      "text": "not sure, is this an md file or extensionless file?",
+      "status": "done",
+      "reply": "Extensionless on purpose. The body is the raw URL of the did skill in the other repo, same pattern as lawcite, domdb, and hudoc. The old did.md route was folded into de-identify/SKILL.md; nothing renamed.",
+      "created": "2026-10-05T14:28:10+02:00",
+      "updated": "2026-10-05T14:32:13+02:00"
+    },
+    {
+      "id": 12,
+      "paths": [
+        "processing/passes/default/SKILL.md"
+      ],
+      "text": "agent added the text 2nd time",
+      "status": "done",
+      "reply": "The saved file lists each pass once (e4532f5). The second copy is only in the unsaved editor draft. I did not write that draft to disk. Discard the unsaved draft on process/passes/default/SKILL.md to drop the second copy.",
+      "created": "2026-10-05T14:50:06+02:00",
+      "updated": "2026-10-05T14:53:02+02:00"
+    },
+    {
+      "id": 13,
+      "paths": [
+        "analysis/legal/language/references/contradiction.md"
+      ],
+      "text": "this is not human readable or clear, write it human first",
+      "status": "done",
+      "reply": "Rewrote contradiction as plain sentences: what differs, how claims are grouped, the three kinds of conflict, and that a conflict is not a finding of untruthfulness. (118c5a3)",
+      "created": "2026-10-05T15:37:07+02:00",
+      "updated": "2026-10-05T15:41:42+02:00"
+    },
+    {
+      "id": 14,
+      "paths": [
+        "analysis/legal/language/references/evasiveness.md"
+      ],
+      "text": "same issue, this is full of markup and technical syntax",
+      "status": "done",
+      "reply": "Rewrote evasiveness in plain sentences: answer kinds, hedges, the speaker's own baseline, and no inference of motive. (e9b95fb)",
+      "created": "2026-10-05T15:37:47+02:00",
+      "updated": "2026-10-05T15:41:58+02:00"
+    },
+    {
+      "id": 15,
+      "paths": [
+        "analysis/legal/language/references/manipulation.md"
+      ],
+      "text": "write much more plain and brief",
+      "status": "done",
+      "reply": "Rewrote manipulation as a short plain note: message labels, both directions, and no diagnosis of a person. (ad5f56b)",
+      "created": "2026-10-05T15:39:58+02:00",
+      "updated": "2026-10-05T15:42:14+02:00"
+    },
+    {
+      "id": 16,
+      "paths": [
+        "analysis/legal/language/references/contradiction.md"
+      ],
+      "text": "this is bloat mostly on how to cite, this should be only on how to spot contradictions, i.e. \nstatement vs statement, statement vs fact, statement vs behavior",
+      "status": "done",
+      "reply": "Dropped the citation steps. The note now only spots three mismatches: statement against statement, statement against fact, and statement against behavior. (8fc2dbf)",
+      "created": "2026-10-05T15:45:11+02:00",
+      "updated": "2026-10-05T15:48:45+02:00",
+      "lines": [
+        11,
+        17
+      ],
+      "quote": "Each assertion notes who said it, which event it concerns, the date they give, and whether they affirm it or deny it.\nA short neutral restatement is for grouping only.\nThe citation is the verbatim span, not the restatement.\nThe speaker is the person who made the assertion.\nWhen a report quotes someone, the speaker is the person quoted, not the author of the report.\nOne event keeps one name.\nAn event that an earlier reading already named keeps that name.",
+      "stale": true
+    },
+    {
+      "id": 17,
+      "paths": [
+        "analysis/legal/language/references/contradiction.md"
+      ],
+      "text": "skill should be about 6 lines",
+      "status": "done",
+      "reply": "Cut the note to six lines: a mismatch is statement against statement, statement against fact, or statement against behavior. (8ab1df8)",
+      "created": "2026-10-05T15:45:53+02:00",
+      "updated": "2026-10-05T15:49:06+02:00",
+      "lines": [
+        1,
+        39
+      ],
+      "quote": "# contradiction\n\nA contradiction is two accounts of the same thing that do not match.\nThose accounts may come from one speaker at different times, from different people, or from a speaker set against the documents.\n\nThe work starts by collecting assertions of fact.\nAn assertion is about an event, a condition, or a person's conduct.\nEach assertion is copied verbatim, with its page.\nOpinions, legal argument, and pleasantries stay out.\n\nEach assertion notes who said it, which event it concerns, the date they give, and whether they affirm it or deny it.\nA short neutral restatement is for grouping only.",
+      "stale": true
+    },
+    {
+      "id": 18,
+      "paths": [
+        "."
+      ],
+      "text": "change top levels to authoring, analysis, ingestion etc",
+      "status": "done",
+      "reply": "Renamed the workflow folders to ingestion, processing, analysis, and authoring (0fab2bf). setup and jura stay. The router and the path references in sources, social-standards, and typst_use follow the new names. labquote and memo symlinks now point under authoring. Annotations and the unsaved drafts moved with the folders; the drafts were not written to disk. psychology/opinion was missing after the rename, so the tracked SKILL.md and its note are back. The typst_use note still says author/templates, in your wording.",
+      "created": "2026-10-08T21:56:01+02:00",
+      "updated": "2026-10-08T22:03:33+02:00"
+    },
+    {
+      "id": 19,
+      "paths": [
+        "jura"
+      ],
+      "text": "just keep the root skill no need for the symlink copy",
+      "status": "done",
+      "reply": "Removed the jura/SKILL.md symlink and left the root SKILL.md as the router. README no longer points at the copy. (5f3f83f)",
+      "created": "2026-10-08T21:57:17+02:00",
+      "updated": "2026-10-08T22:12:01+02:00"
+    },
+    {
+      "id": 20,
+      "paths": [
+        "analysis/psychology/examination/SKILL.md"
+      ],
+      "text": "unneeded narrowing --> use for psychological examinations",
+      "status": "done",
+      "reply": "The description is now \"Use for psychological examinations.\" The method list in the body is unchanged. (94ffc9b)",
+      "created": "2026-10-08T21:59:09+02:00",
+      "updated": "2026-10-08T22:12:01+02:00",
+      "lines": [
+        4,
+        5
+      ],
+      "quote": "  Use when reading how a psychological examination in a disputed-facts case was carried out.\n  Who was seen, which methods the report says were used, and what it says it did not do.",
+      "stale": true
+    },
+    {
+      "id": 21,
+      "paths": [
+        "authoring/templates"
+      ],
+      "text": "add numbered paragraph formats either numbered through or numbered per page",
+      "status": "done",
+      "reply": "Added numbered-through (paragraph numbers run through the document) and numbered-page (they start again at 1 on each page). (6100aaa)",
+      "created": "2026-10-08T22:01:15+02:00",
+      "updated": "2026-10-08T22:12:02+02:00"
+    },
+    {
+      "id": 22,
+      "paths": [
+        "authoring/templates"
+      ],
+      "text": "add a one line skill getting authoring guidance/template for patents, in top instruct to get from the relevant patent jurisdiction",
+      "status": "done",
+      "reply": "Added authoring/templates/patent. The skill tells the agent to obtain the authoring guidance and the template from the patent jurisdiction that applies. (335f001)",
+      "created": "2026-10-08T22:02:25+02:00",
+      "updated": "2026-10-08T22:12:02+02:00"
+    },
+    {
+      "id": 23,
+      "paths": [
+        "analysis/legal/credibility/SKILL.md"
+      ],
+      "text": "this was better before, retrieve the manual original, then write a section on statement credibility, institutional credibility, personal credibility --> witness or party to the case",
+      "status": "done",
+      "reply": "Restored the earlier manual wording under statement credibility, and added institutional credibility and personal credibility (a witness or a party). Dropped the later version that sent those tests off to the statute. (2c03a34)",
+      "created": "2026-10-08T22:04:43+02:00",
+      "updated": "2026-10-08T22:12:03+02:00",
+      "lines": [
+        5,
+        23
+      ],
+      "quote": "\n# credibility\n\nSame questions for every party, on a statement and a topic.\nNo score, rank, or label for the person.\nDemeanour and tone are not a factor.\nName the passage.\n\nWhat a contradiction, a history of false or misleading statements, a recorded condition, a rare event, or corroboration means for the statement comes from the statute, the judgments, and the guidance in the evid set, for this jurisdiction and the date of the statement.\nRead those.\n\nA contradiction is two statements in one document, a statement here and one made elsewhere, or a statement against a fact.",
+      "stale": true
+    },
+    {
+      "id": 24,
+      "paths": [
+        "."
+      ],
+      "text": "I think calling all a skill here is not correct, maybe most should be index.md instead, evaluate",
+      "status": "done",
+      "reply": "Leaves the router opens are index.md (37 files). SKILL.md stays on the root router and on labquote and memo, which are installed as their own skills. legal-standards, orgnet, passes/default, and regex still have SKILL.md because an editor draft is open on each. (2a0b0be)",
+      "created": "2026-10-09T11:58:40+02:00",
+      "updated": "2026-10-09T12:06:03+02:00"
+    },
+    {
+      "id": 25,
+      "paths": [
+        "analysis/legal/legal-standards/SKILL.md"
+      ],
+      "text": "split into sub --> add more standards if suited",
+      "status": "done",
+      "reply": "Split legal-standards into sub-leaves: authorization, conduct, impartiality, confidentiality, procedure, and burden-of-proof. The parent index points at them. Burden of proof keeps the family-law and false-statement checks, and the figures stay in probability. The open draft on SKILL.md only changed blank lines; that file is now index.md, so the draft can be dropped. (39c3dc7)",
+      "created": "2026-10-09T12:08:09+02:00",
+      "updated": "2026-10-09T12:10:58+02:00",
+      "lines": [
+        6,
+        17
+      ],
+      "quote": "# legal-standards\n- obtain the documents that govern this author and this kind of document, for this jurisdiction and the date of the document\n  - code of conduct/ethical guidelines for legal professionals\n  - ethical guideline for judges\n  - court procedural manuals\n  - law and judicial guidelines on administration of justice\n\n# burden of proof\n- check type of court and relevant burden of proof\n- be careful on matter\n  - family law --> civil BoP\n  - false statement to court --> criminal BoP",
+      "stale": true
+    },
+    {
+      "id": 26,
+      "paths": [
+        "analysis/legal/governing/index.md"
+      ],
+      "text": "governing is vague name leaf, remove",
+      "status": "open",
+      "reply": "",
+      "created": "2026-10-09T13:23:02+02:00",
+      "updated": "2026-10-09T13:23:02+02:00"
+    }
+  ]
+}

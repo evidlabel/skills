@@ -58,7 +58,10 @@ A stub `title:` (a heading or a paragraph number) is not a quote.
 Package template keys (`0157:tale`) are syntax illustration.
 Keys in the `.typ` are gather keys.
 
-`bibliography-custom()` renders **every** store entry — unsubsetted dump = whole dataset on the back page.
+`bibliography-custom()` prints only the entries **cited in the text** — uncited
+store entries are omitted, as in BibTeX. One shared `refs.yml` is therefore fine:
+cite the keys a document uses and the back page lists just those. (Do not subset
+the file per document to control the back page.)
 
 Keys and API: `references/api.md`.
 

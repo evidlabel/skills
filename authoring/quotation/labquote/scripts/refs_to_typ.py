@@ -74,7 +74,7 @@ def main() -> int:
     p.add_argument("-o", "--output", type=Path, default=Path("main.typ"), help="Typst file to write")
     p.add_argument("--cite-style", default="short", help="labquote inline cite style (full|brief|short)")
     p.add_argument("--write-refs", action="store_true", help="write author/date from :main onto quote slugs")
-    p.add_argument("--max-quotes", type=int, default=12, help="refuse a dump larger than this; subset refs.yml first")
+    p.add_argument("--max-quotes", type=int, default=12, help="refuse to scaffold more than this many #blockq lines; the refs.yml may hold more (uncited entries are not printed)")
     args = p.parse_args()
     if yaml is None:
         sys.exit("refs_to_typ.py needs PyYAML")
@@ -91,7 +91,8 @@ def main() -> int:
     if len(keys) > args.max_quotes:
         sys.exit(
             f"{len(keys)} quote slugs (max {args.max_quotes}). "
-            "Subset refs.yml to the cited keys, or pass --max-quotes."
+            "This scaffolds a #blockq for every quote in the file; pass --max-quotes "
+            "for a larger scaffold, or cite the keys by hand (uncited entries are not printed)."
         )
     docs = {prefix(k) for k in data if is_main(k)}
     quoted = {prefix(k) for k in keys}

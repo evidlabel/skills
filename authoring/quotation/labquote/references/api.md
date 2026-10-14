@@ -23,7 +23,7 @@
 | `blockq(key, ..)` | block quote + header |
 | `cite-ref(key, pin: …)` | bare `[d, q]`, no body |
 | `id(pin: …)` | legal `Id.` — last cite |
-| `bibliography-custom(brief: false, title: auto)` | grouped back page; slice italicised. Heading from `text.lang` (da → "Referencer") |
+| `bibliography-custom(brief: false, title: auto, all: false)` | grouped back page; slice italicised. Heading from `text.lang` (da → "Referencer"). Prints only cited entries; `all: true` prints the whole store (a `\nocite{*}`) |
 
 `start:`/`end:` = verbatim substrings.
 Gather generously; slice tightly.

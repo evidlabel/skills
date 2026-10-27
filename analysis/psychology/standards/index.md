@@ -5,6 +5,23 @@ description: Use when a psychologist is involved and the report is read against 
 
 # standards
 
+```mermaid
+stateDiagram-v2
+  state "Whether the psychologist was authorized for this work, noted on the case" as Auth
+  state "A document that governs the work, from the evid set, for this jurisdiction and the date" as Doc
+  state "The diagnostic system the report uses, and the system in force at the time" as System
+  state "The duties parsed from the ethical and professional guideline" as Duties
+  state "The terms, read under professionalism" as Terms
+
+  [*] --> Auth
+  Auth --> Doc
+  Doc --> Doc: the next governing document
+  Doc --> System: the governing documents are gathered
+  System --> Duties
+  Duties --> Terms
+  Terms --> [*]
+```
+
 Where a psychologist is involved, find whether they were authorized for this work.
 Note that on the case.
 Which rules apply, and what recourse exists, depend on it.

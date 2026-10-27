@@ -5,6 +5,21 @@ description: Use when briefing probabilistic arguments in law.
 
 # probability
 
+```mermaid
+stateDiagram-v2
+  state "The burden for this jurisdiction and this date" as Wording
+  state "The evidence, weighed against that burden" as Weigh
+
+  [*] --> Kind
+  state Kind <<choice>>
+  Kind --> Wording: a civil matter
+  Kind --> Wording: a criminal matter
+  Kind --> Wording: another burden this matter uses
+  Wording --> Weigh
+  Weigh --> Kind: another burden on this matter
+  Weigh --> [*]: each burden this matter uses is named
+```
+
 The basis of any law is weighting evidence against the relevant burden of proof.
 That is a probabilistic concept.
 

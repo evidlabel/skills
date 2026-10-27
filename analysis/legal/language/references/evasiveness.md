@@ -1,5 +1,36 @@
 # evasiveness
 
+```mermaid
+stateDiagram-v2
+  state "The answer, copied verbatim with its page" as Answer
+  state "The answers on this topic are labelled" as Labelled
+  state "Hedges on a material fact" as Hedges
+  state "Counts by kind, for this person and this topic" as Count
+  state "The rate of that speaker on topics that are not in dispute" as Baseline
+
+  [*] --> Answer
+  Answer --> Kind: an answer still to label
+  state Kind <<choice>>
+  Kind --> Labelled: direct
+  Kind --> Labelled: partial
+  Kind --> Labelled: non-answer
+  Kind --> Labelled: deflection
+  Kind --> Labelled: counter-question
+  Kind --> Labelled: memory claim
+  Kind --> Labelled: topic shift
+  Kind --> Labelled: refusal
+  Labelled --> Answer: the next answer
+  Labelled --> Hedges: the answers are labelled
+  Hedges --> Hedges: the next hedge
+  Hedges --> Count: that reading is done
+  Count --> Gap: fewer than three answers on the topic
+  Count --> Baseline: three or more
+  Gap --> [*]: a gap, not a flag
+  Baseline --> Flag: the share that is not direct is clearly above that baseline
+  Baseline --> [*]: it is not above that baseline
+  Flag --> [*]: the pattern is reported, and a motive is not inferred
+```
+
 An evasive answer does not answer the question.
 Vagueness on a point that matters is the same kind of thing.
 The comparison is with that speaker's own usual way of answering, not with a perfect answer.

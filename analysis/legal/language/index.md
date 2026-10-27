@@ -5,6 +5,27 @@ description: Use when reading how things are said in a disputed-facts case — c
 
 # language
 
+```mermaid
+stateDiagram-v2
+  state "contradiction" as Contradiction
+  state "evasiveness" as Evasiveness
+  state "manipulation" as Manipulation
+  state "attribution" as Attribution
+
+  [*] --> Party
+  Party --> Pick: a party still to read
+  state Pick <<choice>>
+  Pick --> Contradiction
+  Pick --> Evasiveness
+  Pick --> Manipulation
+  Pick --> Attribution
+  Contradiction --> Party: the span is labelled, not the person
+  Evasiveness --> Party: the span is labelled, not the person
+  Manipulation --> Party: the span is labelled, not the person
+  Attribution --> Party: the span is labelled, not the person
+  Party --> [*]: every party
+```
+
 Every party.
 Label the span, not the person.
 Load only the method in hand.

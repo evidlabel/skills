@@ -5,6 +5,26 @@ description: Use when a matter needs the routes of recourse, and which of them a
 
 # recourse
 
+```mermaid
+stateDiagram-v2
+  state "Legal routes, for this jurisdiction and this date" as Legal
+  state "Routes through other professionals" as Professional
+  state "Restrictions on the media in legal cases" as Media
+  state "The routes most commonly used, and their potential effectiveness" as Common
+
+  [*] --> split
+  state split <<fork>>
+  split --> Legal
+  split --> Professional
+  split --> Media
+  Legal --> together
+  Professional --> together
+  Media --> together
+  state together <<join>>
+  together --> Common
+  Common --> [*]
+```
+
 For a matter, identify the routes of recourse for the jurisdiction and the date.
 
 - Legal

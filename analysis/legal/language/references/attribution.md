@@ -1,5 +1,26 @@
 # attribution
 
+```mermaid
+stateDiagram-v2
+  state "An assertion of fact about an event or about conduct" as Assertion
+  state "The span and its basis" as Known
+  state "Who reported it, or null" as Reporter
+
+  [*] --> Assertion
+  Assertion --> Basis: an assertion still to label
+  state Basis <<choice>>
+  Basis --> Known: observed
+  Basis --> Known: reported
+  Basis --> Known: child-report
+  Basis --> Known: document
+  Basis --> Known: inference
+  Basis --> Known: unknown
+  Known --> Reporter: reported, or a child-report
+  Known --> Assertion: any other basis
+  Reporter --> Assertion
+  Assertion --> [*]: every assertion has a basis
+```
+
 For each assertion of fact, labels how the speaker knows it.
 Other analyses use this to separate what was witnessed from what was passed on.
 

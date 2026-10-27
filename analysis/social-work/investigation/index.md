@@ -6,6 +6,28 @@ description: |
 ---
 
 # investigation
+
+```mermaid
+stateDiagram-v2
+  state "What the investigation looked at" as Looked
+  state "Who was spoken to, and who was not" as Spoken
+  state "What the record contains, and what the investigation says is missing" as Contents
+  state "The statements of the child, by key, separate from the summary of the caseworker" as Child
+
+  [*] --> split
+  state split <<fork>>
+  split --> Looked
+  split --> Spoken
+  split --> Contents
+  split --> Child
+  Looked --> together
+  Spoken --> together
+  Contents --> together
+  Child --> together
+  state together <<join>>
+  together --> [*]: no score for a parent or a child
+```
+
 - what the investigation looked at: the child, the home, school, health, the network
 - who was spoken to, and who was not
 - what the record contains, and what the investigation says is missing

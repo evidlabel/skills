@@ -7,6 +7,32 @@ description: |
 
 # measures
 
+```mermaid
+stateDiagram-v2
+  state "One measure" as One
+  state "Its name, the date it started, and what the record says it was for" as Named
+  state "What the record says was offered before it" as Before
+  state "The stated views of the child and of the parents, by key" as Views
+  state "Whether the measure in the plan matches the measure in force" as Match
+  state "The legal test is proportionality" as Test
+
+  [*] --> One
+  One --> split
+  state split <<fork>>
+  split --> Named
+  split --> Before
+  split --> Views
+  split --> Match
+  Named --> together
+  Before --> together
+  Views --> together
+  Match --> together
+  state together <<join>>
+  together --> Test
+  Test --> One: the next measure
+  Test --> [*]
+```
+
 - each measure named, with the date it started and what the record says it was for
 - what the record says was offered before it
 - the child's and the parents' stated views, by key

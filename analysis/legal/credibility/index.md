@@ -5,6 +5,24 @@ description: Use when assessing credibility in a disputed-facts case, of a state
 
 # credibility
 
+```mermaid
+stateDiagram-v2
+  state "Statement credibility. Name the passage." as Statement
+  state "Institutional credibility. Name the passage." as Institution
+  state "Personal credibility. Name the passage." as Person
+
+  [*] --> Subject
+  state Subject <<choice>>
+  Subject --> Statement: a statement on a topic
+  Subject --> Institution: a court, an authority, a service, or another body
+  Subject --> Person: a witness, or a party
+  Person --> Statement: each statement of theirs, on its own
+  Statement --> Subject: the next passage
+  Institution --> Subject: the next passage
+  Statement --> [*]: no score, rank, or label. Demeanour and tone are not a factor.
+  Institution --> [*]: no score or rank for the body
+```
+
 Same questions for every party, on a statement and a topic.
 No score, rank, or label for the person.
 Demeanour and tone are not a factor.

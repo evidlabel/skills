@@ -7,6 +7,25 @@ description: >
 
 # social-standards
 
+```mermaid
+stateDiagram-v2
+  state "Whether the author was authorized, noted on the case" as Auth
+  state "A source the record treats as binding" as Source
+  state "The record names it, and the evid set does not have it" as Gap
+  state "What it requires of this author and this kind of document, by key" as Extract
+  state "The requirement set next to what the record shows" as Beside
+
+  [*] --> Auth
+  Auth --> Source
+  Source --> Gap: named by the record, and missing from the evid set
+  Gap --> Source: name it, and go back to ingestion
+  Source --> Extract: the set has it
+  Extract --> Beside
+  Beside --> Source: the next binding source
+  Source --> [*]: each binding source is extracted, or named as a gap
+  Beside --> [*]: what was done, and what the record does not show
+```
+
 Note whether the author was authorized, and record that on the case.
 Which rules apply, and what recourse exists, depend on it.
 

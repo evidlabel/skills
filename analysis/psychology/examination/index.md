@@ -7,26 +7,25 @@ description: Use for psychological examinations.
 
 ```mermaid
 stateDiagram-v2
-  state "Who asked, and the question that was asked" as Mandate
+  state split <<fork>>
+  state together <<join>>
+  state "The mandate: who asked, and the question that was asked" as Mandate
   state "Who was seen, who was not, and how many times" as Seen
   state "The questions, tests, and observations the report says were used" as Used
   state "What the report says it did not do" as NotDone
   state "The procedure in the words of the report, quoted by key" as Procedure
-  state "The conclusion of the examiner, read under opinion" as Conclusion
+  state "Hand the conclusion of the examiner to opinion" as Conclusion
 
-  [*] --> split
-  state split <<fork>>
-  split --> Mandate
+  [*] --> Mandate
+  Mandate --> split
   split --> Seen
   split --> Used
   split --> NotDone
   split --> Procedure
-  Mandate --> together
   Seen --> together
   Used --> together
   NotDone --> together
   Procedure --> together
-  state together <<join>>
   together --> Conclusion
   Conclusion --> [*]
 ```

@@ -4,12 +4,12 @@
 ```mermaid
 stateDiagram-v2
   state "The formal and informal weight placed on intent" as Weight
-  state "A route by which to establish intent" as Route
+  state "One route by which to establish intent, and what the record shows on it" as Route
 
   [*] --> Weight
   Weight --> Route
-  Route --> Route: the route, and what it shows
-  Route --> [*]: the weight is stated, and the routes are mapped
+  Route --> Route: a route is left
+  Route --> [*]: every route is mapped
 ```
 
 - figure out formal and informal weight placed on intent

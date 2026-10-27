@@ -7,23 +7,24 @@ description: Use when reading how things are said in a disputed-facts case — c
 
 ```mermaid
 stateDiagram-v2
-  state "contradiction" as Contradiction
-  state "evasiveness" as Evasiveness
-  state "manipulation" as Manipulation
-  state "attribution" as Attribution
+  state Method <<choice>>
+  state "references/contradiction.md" as Contradiction
+  state "references/evasiveness.md" as Evasiveness
+  state "references/manipulation.md" as Manipulation
+  state "references/attribution.md" as Attribution
+  state "One party, read with that method. Label the span, not the person" as Party
 
-  [*] --> Party
-  Party --> Pick: a party still to read
-  state Pick <<choice>>
-  Pick --> Contradiction
-  Pick --> Evasiveness
-  Pick --> Manipulation
-  Pick --> Attribution
-  Contradiction --> Party: the span is labelled, not the person
-  Evasiveness --> Party: the span is labelled, not the person
-  Manipulation --> Party: the span is labelled, not the person
-  Attribution --> Party: the span is labelled, not the person
-  Party --> [*]: every party
+  [*] --> Method
+  Method --> Contradiction: claims that differ
+  Method --> Evasiveness: answers that do not answer
+  Method --> Manipulation: pressure or distortion in a message
+  Method --> Attribution: whether a claim was witnessed or passed on
+  Contradiction --> Party
+  Evasiveness --> Party
+  Manipulation --> Party
+  Attribution --> Party
+  Party --> Party: a party is left
+  Party --> [*]: every party is read with the same method
 ```
 
 Every party.

@@ -9,16 +9,17 @@ description: |
 
 ```mermaid
 stateDiagram-v2
+  state split <<fork>>
+  state together <<join>>
   state "One measure" as One
   state "Its name, the date it started, and what the record says it was for" as Named
   state "What the record says was offered before it" as Before
   state "The stated views of the child and of the parents, by key" as Views
   state "Whether the measure in the plan matches the measure in force" as Match
-  state "The legal test is proportionality" as Test
+  state "Hand the measure to proportionality" as Test
 
   [*] --> One
   One --> split
-  state split <<fork>>
   split --> Named
   split --> Before
   split --> Views
@@ -27,10 +28,9 @@ stateDiagram-v2
   Before --> together
   Views --> together
   Match --> together
-  state together <<join>>
   together --> Test
-  Test --> One: the next measure
-  Test --> [*]
+  Test --> One: a measure is left
+  Test --> [*]: every measure is set out
 ```
 
 - each measure named, with the date it started and what the record says it was for

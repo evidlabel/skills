@@ -9,21 +9,24 @@ description: >
 
 ```mermaid
 stateDiagram-v2
+  state InSet <<choice>>
+  state Next <<choice>>
   state "Whether the author was authorized, noted on the case" as Auth
-  state "A source the record treats as binding" as Source
-  state "The record names it, and the evid set does not have it" as Gap
-  state "What it requires of this author and this kind of document, by key" as Extract
-  state "The requirement set next to what the record shows" as Beside
+  state "One source the record treats as binding" as Source
+  state "Name it as a gap, and send it back to ingestion" as Gap
+  state "Quote what it requires of this author and this kind of document, by key" as Extract
+  state "Set the requirement next to what the record shows was done, and name what the record does not show" as Beside
 
   [*] --> Auth
   Auth --> Source
-  Source --> Gap: named by the record, and missing from the evid set
-  Gap --> Source: name it, and go back to ingestion
-  Source --> Extract: the set has it
+  Source --> InSet
+  InSet --> Extract: in the evid set
+  InSet --> Gap: named by the record, missing from the evid set
   Extract --> Beside
-  Beside --> Source: the next binding source
-  Source --> [*]: each binding source is extracted, or named as a gap
-  Beside --> [*]: what was done, and what the record does not show
+  Gap --> Next
+  Beside --> Next
+  Next --> Source: a binding source is left
+  Next --> [*]: every binding source is set out, or named as a gap
 ```
 
 Note whether the author was authorized, and record that on the case.

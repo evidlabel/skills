@@ -2,28 +2,35 @@
 
 ```mermaid
 stateDiagram-v2
-  state "Labels the statute and the guidance in the evid set allow, for this jurisdiction and this date" as Allowed
+  state Scope <<choice>>
+  state Denial <<choice>>
+  state NextSpan <<choice>>
+  state NextMessage <<choice>>
+  state "The labels the statute and the guidance in the evid set allow, for this jurisdiction and this date" as Allowed
   state "A message from one person to another" as Message
-  state "One label, the strongest fit" as Label
-  state "The record of that event" as Named
-  state "The record is silent" as Silent
-  state "Counted in each direction, month by month, including zeros" as Count
-  state "Rising, falling, stable, or episodic" as Trend
+  state "One span, one label, the strongest fit" as Span
+  state "Name the record of that event" as Named
+  state "A gap" as Silent
+  state "Count each label in each direction, month by month, including zeros" as Count
+  state "Describe each count as rising, falling, stable, or episodic" as Trend
 
   [*] --> Allowed
   Allowed --> Message
-  Message --> Message: ordinary disagreement, or a firm but plain refusal
-  Message --> Label: a message in scope
-  Label --> Denial: the label is reality-denial
-  Label --> Message: any other label
-  state Denial <<choice>>
-  Denial --> Named: a record of the event
-  Denial --> Silent
-  Named --> Message
-  Silent --> Message
-  Message --> Count: the messages are labelled
+  Message --> Scope
+  Scope --> Span: in scope
+  Scope --> NextMessage: ordinary disagreement, or a firm but plain refusal
+  Span --> Denial
+  Denial --> Named: reality-denial, and the record has the event
+  Denial --> Silent: reality-denial, and the record is silent
+  Denial --> NextSpan: any other label
+  Named --> NextSpan
+  Silent --> NextSpan
+  NextSpan --> Span: a span is left in this message
+  NextSpan --> NextMessage: no span is left
+  NextMessage --> Message: a message is left
+  NextMessage --> Count: every message is labelled
   Count --> Trend
-  Trend --> [*]: counts and spans. No clinical or syndrome name for a person.
+  Trend --> [*]
 ```
 
 This labels pressure and distortion in a message.

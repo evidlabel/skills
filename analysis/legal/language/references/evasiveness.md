@@ -2,15 +2,20 @@
 
 ```mermaid
 stateDiagram-v2
-  state "The answer, copied verbatim with its page" as Answer
-  state "The answers on this topic are labelled" as Labelled
-  state "Hedges on a material fact" as Hedges
-  state "Counts by kind, for this person and this topic" as Count
-  state "The rate of that speaker on topics that are not in dispute" as Baseline
+  state Kind <<choice>>
+  state Size <<choice>>
+  state Above <<choice>>
+  state Next <<choice>>
+  state "Copy the answer verbatim with its page, and the question where it is in the same document" as Answer
+  state "One answer, one kind" as Labelled
+  state "Mark each vague or qualified assertion about a material fact" as Hedges
+  state "For one person and one topic, count the answers by kind, and the hedges" as Count
+  state "That speaker's rate on topics that are not in dispute" as Baseline
+  state "A gap, not a flag" as Gap
+  state "Report the pattern. Do not infer a motive" as Flag
 
   [*] --> Answer
-  Answer --> Kind: an answer still to label
-  state Kind <<choice>>
+  Answer --> Kind
   Kind --> Labelled: direct
   Kind --> Labelled: partial
   Kind --> Labelled: non-answer
@@ -19,16 +24,20 @@ stateDiagram-v2
   Kind --> Labelled: memory claim
   Kind --> Labelled: topic shift
   Kind --> Labelled: refusal
-  Labelled --> Answer: the next answer
-  Labelled --> Hedges: the answers are labelled
-  Hedges --> Hedges: the next hedge
-  Hedges --> Count: that reading is done
-  Count --> Gap: fewer than three answers on the topic
-  Count --> Baseline: three or more
-  Gap --> [*]: a gap, not a flag
-  Baseline --> Flag: the share that is not direct is clearly above that baseline
-  Baseline --> [*]: it is not above that baseline
-  Flag --> [*]: the pattern is reported, and a motive is not inferred
+  Labelled --> Answer: an answer is left
+  Labelled --> Hedges: every answer is labelled
+  Hedges --> Count
+  Count --> Size
+  Size --> Gap: fewer than three answers on the topic
+  Size --> Baseline: three or more
+  Baseline --> Gap: no topic out of dispute to compare with
+  Baseline --> Above
+  Above --> Flag: the share that is not direct is clearly above the baseline
+  Above --> Next: it is not
+  Gap --> Next
+  Flag --> Next
+  Next --> Count: a person and topic is left
+  Next --> [*]: every person and topic is counted
 ```
 
 An evasive answer does not answer the question.

@@ -7,17 +7,21 @@ description: Use when briefing probabilistic arguments in law.
 
 ```mermaid
 stateDiagram-v2
-  state "The burden for this jurisdiction and this date" as Wording
-  state "The evidence, weighed against that burden" as Weigh
+  state "The burden for this matter, from burden-of-proof" as Burden
+  state "Each statement of fact: uncontested, contested, or supported by overwhelming evidence" as Facts
+  state "The plausibility and credibility of each contested statement" as Weight
+  state "Whether a claim rests on personal truth rather than on fact" as Personal
+  state "The evidence, weighed against the burden" as Weigh
+  state "Whether each party was held to the same burden" as Equal
 
-  [*] --> Kind
-  state Kind <<choice>>
-  Kind --> Wording: a civil matter
-  Kind --> Wording: a criminal matter
-  Kind --> Wording: another burden this matter uses
-  Wording --> Weigh
-  Weigh --> Kind: another burden on this matter
-  Weigh --> [*]: each burden this matter uses is named
+  [*] --> Burden
+  Burden --> Facts
+  Facts --> Weight
+  Weight --> Personal
+  Personal --> Weigh
+  Weigh --> Equal
+  Equal --> Burden: another matter, under another burden
+  Equal --> [*]: every matter is weighed against its burden
 ```
 
 The basis of any law is weighting evidence against the relevant burden of proof.

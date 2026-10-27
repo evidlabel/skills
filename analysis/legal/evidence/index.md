@@ -7,20 +7,21 @@ description: Use when setting out what the record shows in a disputed-facts case
 
 ```mermaid
 stateDiagram-v2
-  state "What it is, who wrote it, and whether the writer saw the events or heard them" as Inventory
-  state "Each event names its source" as Timeline
-  state "How the questions were asked, how it was recorded, how it was conducted" as Interviews
-  state "Sources that support the point, and sources that contradict it" as Point
+  state "One document: what it is, who wrote it, and whether the writer saw the events or heard them" as Inventory
+  state "One event on the timeline, with its source" as Timeline
+  state "One interview: how the questions were asked, how it was recorded, how it was conducted" as Interviews
+  state "One contested point: the sources that support it, and the sources that contradict it" as Point
 
   [*] --> Inventory
-  Inventory --> Inventory: the next document
-  Inventory --> Timeline: the documents are listed
-  Timeline --> Timeline: the next event
-  Timeline --> Interviews: each event names its source
-  Interviews --> Interviews: the next interview
-  Interviews --> Point: the interviews are read
-  Point --> Point: the next contested point
-  Point --> [*]: each contested point has its sources
+  Inventory --> Inventory: a document is left
+  Inventory --> Timeline: every document is listed
+  Timeline --> Timeline: an event is left
+  Timeline --> Interviews: every event names its source
+  Timeline --> Point: the record has no interviews
+  Interviews --> Interviews: an interview is left
+  Interviews --> Point: every interview is read
+  Point --> Point: a contested point is left
+  Point --> [*]: every contested point has its sources
 ```
 
 Inventory first.

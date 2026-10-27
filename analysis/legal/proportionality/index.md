@@ -8,20 +8,16 @@ description: Use when a measure is tested for proportionality.
 ```mermaid
 stateDiagram-v2
   state "One measure" as Measure
-  state "How proportionality is seen for this kind of measure, on its date" as HowSeen
-  state "The statute and the decisions that jurisdiction uses" as Obtain
-  state "That reading, applied to the record" as Apply
-  state "The reasons the record gives" as Reasons
-  state "Evidence for, evidence against, and the gaps" as Sides
+  state "How the jurisdiction reads proportionality for this kind of measure on its date, from the statute and the decisions it uses" as Reading
+  state "The reasons the record gives for the measure" as Reasons
+  state "Under that reading: the evidence for, the evidence against, and the gaps" as Sides
 
   [*] --> Measure
-  Measure --> HowSeen
-  HowSeen --> Obtain
-  Obtain --> Apply
-  Apply --> Reasons
+  Measure --> Reading
+  Reading --> Reasons
   Reasons --> Sides
-  Sides --> Measure: the next measure
-  Sides --> [*]: no score, and no conclusion on the measure
+  Sides --> Measure: a measure is left
+  Sides --> [*]: every measure is set out
 ```
 
 One measure at a time.

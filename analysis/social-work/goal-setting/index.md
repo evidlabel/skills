@@ -7,19 +7,23 @@ description: Use when reading the goals in a social-work record against the manu
 
 ```mermaid
 stateDiagram-v2
-  state "The manuals this professional class uses for setting goals, for this jurisdiction and this date" as Manuals
-  state "Gather that manual into the evid set" as Gather
-  state "A goal, read against that manual" as Read
+  state "Whether this professional class has manuals for setting goals, for this jurisdiction and this date" as Manuals
+  state "Note on the case that the class has none" as None
+  state "Gather the manual into the evid set" as Gather
+  state "One goal, read against the manual" as Read
 
   [*] --> Manuals
-  Manuals --> Gather: a manual the record relies on is missing from the evid set
-  Gather --> Read
+  Manuals --> None: the class has none
+  Manuals --> Gather: the record relies on a manual missing from the evid set
   Manuals --> Read: the manuals are in the set
-  Read --> Read: the next goal
-  Read --> [*]: each goal has been read
+  None --> [*]
+  Gather --> Read
+  Read --> Read: a goal is left
+  Read --> [*]: every goal is read
 ```
 
 Find whether this professional class has manuals for setting goals.
+Where it has none, note that on the case.
 SMART is one form those manuals take.
 Obtain the manuals this class uses, for this jurisdiction and this date.
 Gather them into the evid set when the record relies on them and they are missing.

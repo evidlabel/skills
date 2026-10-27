@@ -9,17 +9,20 @@ description: |
 
 ```mermaid
 stateDiagram-v2
-  state "The observation the report cites for it, both by key" as Paired
-  state "An inference the report does not tie to an observation" as Gap
+  state Tie <<choice>>
+  state Next <<choice>>
+  state "One opinion in the report" as Claim
+  state "Set it next to the observation the report cites, both by key" as Paired
+  state "Mark it as a gap" as Gap
 
   [*] --> Claim
-  state Claim <<choice>>
-  Claim --> Paired
-  Claim --> Gap
-  Paired --> Claim: the next opinion
-  Gap --> Claim: the next opinion
-  Paired --> [*]: the statement is labelled, not the person. No score, rank, or diagnosis as a finding. Weighing it is authoring.
-  Gap --> [*]: the statement is labelled, not the person. No score, rank, or diagnosis as a finding. Weighing it is authoring.
+  Claim --> Tie
+  Tie --> Paired: the report cites an observation for it
+  Tie --> Gap: the report does not tie it to an observation
+  Paired --> Next
+  Gap --> Next
+  Next --> Claim: an opinion is left
+  Next --> [*]: every opinion is set out
 ```
 
 - each opinion next to the observation the report cites for it, both by key

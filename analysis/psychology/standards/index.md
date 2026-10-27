@@ -7,16 +7,23 @@ description: Use when a psychologist is involved and the report is read against 
 
 ```mermaid
 stateDiagram-v2
+  state InSet <<choice>>
+  state NextDoc <<choice>>
   state "Whether the psychologist was authorized for this work, noted on the case" as Auth
-  state "A document that governs the work, from the evid set, for this jurisdiction and the date" as Doc
+  state "One document that governs the work, for this jurisdiction and the date" as Doc
+  state "Name it as a gap, and send it back to ingestion" as Gap
   state "The diagnostic system the report uses, and the system in force at the time" as System
-  state "The duties parsed from the ethical and professional guideline" as Duties
-  state "The terms, read under professionalism" as Terms
+  state "The duties parsed from the ethical and professional guideline, set next to the report" as Duties
+  state "Hand the terms to professionalism" as Terms
 
   [*] --> Auth
   Auth --> Doc
-  Doc --> Doc: the next governing document
-  Doc --> System: the governing documents are gathered
+  Doc --> InSet
+  InSet --> NextDoc: in the evid set
+  InSet --> Gap: missing from the evid set
+  Gap --> NextDoc
+  NextDoc --> Doc: a governing document is left
+  NextDoc --> System: every governing document is gathered, or named as a gap
   System --> Duties
   Duties --> Terms
   Terms --> [*]
@@ -34,6 +41,9 @@ Take them from the evid set for this jurisdiction and the date of the work:
 - the ethical guidelines
 - the licensing board
 - the guideline for that procedure or that kind of report, such as a custody evaluation
+
+A document that is not in the set is a gap.
+Name it and go back to ingestion.
 
 Note the diagnostic system the report uses.
 Obtain which system was in force at the time of the matter, and whether the report used that one.

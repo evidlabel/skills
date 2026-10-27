@@ -9,17 +9,22 @@ description: |
 
 ```mermaid
 stateDiagram-v2
-  state "A term in the document" as Term
+  state Reader <<choice>>
+  state Next <<choice>>
+  state "One term in the document" as Term
   state "Whether it is the professional term" as Professional
   state "Whether it is used correctly" as Used
-  state "Where a layperson has to read the document, whether the term is explained" as Lay
+  state "Whether the term is explained" as Lay
 
   [*] --> Term
   Term --> Professional
   Professional --> Used
-  Used --> Lay
-  Lay --> Term: the next term
-  Lay --> [*]
+  Used --> Reader
+  Reader --> Lay: a layperson has to read the document
+  Reader --> Next: only professionals read it
+  Lay --> Next
+  Next --> Term: a term is left
+  Next --> [*]: every term is read
 ```
 
 When reading a document written by a psychologist, look at the terminology.

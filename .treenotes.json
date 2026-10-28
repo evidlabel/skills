@@ -350,10 +350,10 @@
         "analysis"
       ],
       "text": "in the md files, where possible, formulate the analysis method as a state machine, write it in a mermaid block in the md files",
-      "status": "open",
-      "reply": "",
+      "status": "done",
+      "reply": "Added a stateDiagram-v2 block to 27 analysis method pages (b3f3607). The diagram is the control flow: sequence, a fork where every aspect is read, a choice for a closed classification, and a loop where the list is open. The existing prose stays as the detail. low_accountability_formulations.md is a definition and an example, so it has no diagram, and its editor draft is untouched.",
       "created": "2026-10-27T22:38:52+01:00",
-      "updated": "2026-10-27T22:38:52+01:00"
+      "updated": "2026-10-27T22:50:26+01:00"
     }
   ]
 }
